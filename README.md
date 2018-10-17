@@ -37,3 +37,10 @@ Install Docker Compose using the Docker Compose installation [guide](https://doc
 $ sudo curl -L "https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 $ sudo chmod +x /usr/local/bin/docker-compose
 ```
+
+### Nuclio (High-Performance Serverless event and data processing platform)
+
+Start [Nuclio](https://github.com/nuclio/nuclio) using docker.
+```
+docker run -p 8070:8070 -v /var/run/docker.sock:/var/run/docker.sock -v /tmp:/tmp nuclio/dashboard:stable-amd64
+```
