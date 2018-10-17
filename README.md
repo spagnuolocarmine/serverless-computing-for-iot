@@ -11,7 +11,7 @@
 
 ### Docker
 
-Install Docker using the Docker CE installation !(guide)[https://docs.docker.com/install/linux/docker-ce/ubuntu/#extra-steps-for-aufs].
+Install Docker using the Docker CE installation [guide](https://docs.docker.com/install/linux/docker-ce/ubuntu/#extra-steps-for-aufs).
 
 ```
 $ sudo apt-get update
@@ -31,7 +31,7 @@ $ sudo apt-get install docker-ce
 ```
 
 ### Docker Compose
-Install Docker Compose using the Docker Compose installation !(https://docs.docker.com/compose/install/#install-compose)[guide].
+Install Docker Compose using the Docker Compose installation [guide](https://docs.docker.com/compose/install/#install-compose).
 
 ```
 $ sudo curl -L "https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
