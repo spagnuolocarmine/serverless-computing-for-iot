@@ -11,7 +11,7 @@
 
 ### Docker
 
-Install Docker using the Docker CE installation !(https://docs.docker.com/install/linux/docker-ce/ubuntu/#extra-steps-for-aufs)[guide].
+Install Docker using the Docker CE installation !(guide)[https://docs.docker.com/install/linux/docker-ce/ubuntu/#extra-steps-for-aufs].
 
 ```
 $ sudo apt-get update
