@@ -41,6 +41,12 @@ $ sudo chmod +x /usr/local/bin/docker-compose
 ### Nuclio (High-Performance Serverless event and data processing platform)
 
 Start [Nuclio](https://github.com/nuclio/nuclio) using docker.
+
 ```
 docker run -p 8070:8070 -v /var/run/docker.sock:/var/run/docker.sock -v /tmp:/tmp nuclio/dashboard:stable-amd64
 ```
+
+### RabbitMQ 
+
+#### Library for JavaScript
+https://github.com/squaremo/amqp.node
