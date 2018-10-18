@@ -29,7 +29,7 @@ Docker is a tool designed to make it easier to create, deploy, and run applicati
 
 In a way, Docker is a bit like a virtual machine. But unlike a virtual machine, rather than creating a whole virtual operating system, Docker allows applications to use the same Linux kernel as the system that they're running on and only requires applications be shipped with things not already running on the host computer. This gives a significant performance boost and reduces the size of the application.
 
-*TIP* Docker is used in the architecture to deploy the function in an application container, each function is a Docker container that is listening on a socket port and can be invoked by an HTTP request, or by other triggers.
+**TIP** Docker is used in the architecture to deploy the function in an application container, each function is a Docker container that is listening on a socket port and can be invoked by an HTTP request, or by other triggers.
 
 Install Docker using the Docker CE installation [guide](https://docs.docker.com/install/linux/docker-ce/ubuntu/#extra-steps-for-aufs).
 
@@ -54,7 +54,7 @@ $ sudo apt-get install docker-ce
 
 Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services.
 
-*TIP* Docker compose is the technology used by Nuclio to easily create, build and deploy Docker application containers (the functions in this case).
+**TIP** Docker compose is the technology used by Nuclio to easily create, build and deploy Docker application containers (the functions in this case).
 
 Install Docker Compose using the Docker Compose installation [guide](https://docs.docker.com/compose/install/#install-compose).
 
@@ -67,7 +67,7 @@ $ sudo chmod +x /usr/local/bin/docker-compose
 
 Nuclio (High-Performance Serverless event and data processing platform) is a new "serverless" project, derived from Iguazio's elastic data life-cycle management service for high-performance events and data processing. The simplest way to explore Nuclio is to run its graphical user interface (GUI) of the Nuclio dashboard. 
 
-*TIP* The Nuclio documentation is available at [this link](https://nuclio.io/docs/latest/).
+**TIP** The Nuclio documentation is available at [this link](https://nuclio.io/docs/latest/).
 
 Start [Nuclio](https://github.com/nuclio/nuclio) using a docker container.
 
@@ -77,7 +77,7 @@ docker run -p 8070:8070 -v /var/run/docker.sock:/var/run/docker.sock -v /tmp:/tm
 
 Browse to http://localhost:8070, create a project, and add a function. When run outside of an orchestration platform (for example, Kubernetes or Swarm), the dashboard will simply deploy to the local Docker daemon.
 
-*TIP*  Nuclio provide also the nctcl application client that allows to basically execute the same operation of Nuclio dashboard.
+**TIP**  Nuclio provide also the nctcl application client that allows to basically execute the same operation of Nuclio dashboard.
 
 ----------------------------------------------------------------------------------------------------------------------------
 
@@ -107,7 +107,7 @@ There are different libraries for many languages for interacting with protocol A
 The temperature example aims to demonstrate the potential of the suggested architecture to collect data from IoT sensors and logging this data on an external data  manager.
 
 The application is composed by four functions:
-* *AMQP Consume Function*
+* **AMQP Consume Function**
 
 
 ### AMQP Consume Function
