@@ -6,6 +6,13 @@ The Internet of things (IoT) is the network of physical devices, vehicles, home 
 
 We are interest to efficiently collect and elaborate this data, and produce new data as answer to particular condition computed from the data received. Cloud architectures provides an efficient methods to build this kind of applications.
 
+#### Tutorial Structure
+
+* **[Audience](#audience)**
+* **[Prerequisites](#prerequisites)**
+* **[Installation](#installation)**
+* **[Temperature Example](#temperature-example)**
+
 
 ## Audience
 This tutorial is designed for building a computing architecture, based on open-source software,  that allows the users to exploit Function-as-service model in the context of IoT. The idea is provides a system which allows as in Amazon Aws or Microsoft Azure, and so on, to deploy functions that are trigged by events generated from small devices such as sensors and  mobile (IoT devices), commonly these devices communicates using message-passing, in particular on dedicated protocols as AMQP or MQTT.  
@@ -21,7 +28,9 @@ The end of this tutorial provides example that deploy a function to log the temp
     - RabbitMQ (AMQP and MQTT message broker)
     - Node.js
 
-## Architecture installation on Ubuntu Linux
+## Installation
+
+This tutorial is made on top of an Linux Ubuntu 18.04 LTS machine. 
 
 ### Docker
 
@@ -107,12 +116,18 @@ There are different libraries for many languages for interacting with protocol A
 The temperature example aims to demonstrate the potential of the suggested architecture to collect data from IoT sensors and logging this data on an external data  manager.
 
 The application is composed by four functions:
-* **[AMQP Consume Function](#AMQP-Consume-Function)**
-* **[AMQP Event Function](#amqp-event-function)**
 
+* **[Consume Temperature Function](#consume-temperature-function)**, is triggered by a new AMQP message on the queue "iot/sensors" for a routing key "temperature".
+* **[Send Temperature Function](#send-temperature-function)**, sends a new temperature value on the AMQP to the queue "iot/sensors" for a routing key "temperature".
+* **[Logger](#logger)**, logs the invocation of the consume function, this functions is in waiting for a new messages on the queue AMQP "iot/logs". Is a JavaScript function for Node.js and is executed on an external machine. 
+* **[IoT Client](#iot-client)**, an example IoT client written in JavaScript and executed on Node.js. This function generates new temperature event (containing the temperature value) on the AMQP to the queue "iot/sensors" for a routing key "temperature". The IoT client client could be any client that support the AMQP transport protocol.
 
-### AMQP Consume Function
+The first step to do is access to the Nuclio dashboard and create a new project named IOT.
 
+### Temperature Consume Function
+
+The Temperature Consume Function is written in pure JavaScript and exploits the _amqplib_ JavaScript library to communicate on the "iot/logs" queue the invocation of the function. 
+The JavaScript code is the following:
 ```
 var amqp = require('amqplib');
         var FUNCTION_NAME = "amqpconsume";
@@ -151,6 +166,8 @@ var amqp = require('amqplib');
         };
 ```
 
+The function is deployed using the Docker compose specifics for Nuclio. This is achieved by define a new yaml file that declares all functions specifications and source code. The source code of the function (the JavaScript code) is encoded in base64 and copied in the attribute "functionSourceCode",  moreover, is defined a new trigger on the amqp protocol that allows to automatically invoke the function when a new message is coming on the queue "iot/sensors" for the routing key "temperature".
+
 ```
 apiVersion: "nuclio.io/v1"
 kind: Function
@@ -182,7 +199,8 @@ spec:
     codeEntryType: sourceCode
   platform: {}
 ```
-### AMQP Event Function
+### Send Temperature Function
+AMQP
 ```
 var amqp = require('amqplib');
 
@@ -227,8 +245,8 @@ spec:
   platform: {}
 ```
 
-### AMQP Node.js Logger
-
+### Logger
+AMQP Node.js 
 ```
 var amqp = require('amqplib');
 
@@ -251,8 +269,8 @@ amqp.connect('amqp://guest:guest@172.16.15.52:5672').then(function(conn) {
 }).catch(console.warn);
 ```
 
-### AMQP Node.js Client
-
+### IoT Client
+AMQP Node.js 
 ```
 var args = process.argv.slice(2);
 console.log(args);
