@@ -16,14 +16,20 @@ The end of this tutorial provides example that deploy a function to log the temp
 - OS: 
     - Ubuntu 18.04 LTS
 - Software:
-    - Docker 
-    - Docker Compose    
-    - Nuclio
-    - RabbitMQ (MQTT plugin Enabled)
+    - Docker and Docker Compose (Application containers engine)
+    - Nuclio (Serverless computing provider)
+    - RabbitMQ (AMQP and MQTT message broker)
+    - Node.js
 
 ## Architecture installation on Ubuntu Linux
 
 ### Docker
+
+Docker is a tool designed to make it easier to create, deploy, and run applications by using containers. Containers allow a developer to package up an application with all of the parts it needs, such as libraries and other dependencies, and ship it all out as one package. By doing so, thanks to the container, the developer can rest assured that the application will run on any other Linux machine regardless of any customized settings that machine might have that could differ from the machine used for writing and testing the code.
+
+In a way, Docker is a bit like a virtual machine. But unlike a virtual machine, rather than creating a whole virtual operating system, Docker allows applications to use the same Linux kernel as the system that they're running on and only requires applications be shipped with things not already running on the host computer. This gives a significant performance boost and reduces the size of the application.
+
+*TIP* Docker is used in the architecture to deploy the function in an application container, each function is a Docker container that is listening on a socket port and can be invoked by an HTTP request, or by other triggers.
 
 Install Docker using the Docker CE installation [guide](https://docs.docker.com/install/linux/docker-ce/ubuntu/#extra-steps-for-aufs).
 
@@ -45,6 +51,11 @@ $ sudo apt-get install docker-ce
 ```
 ----------------------------------------------------------------------------------------------------------------------------
 ### Docker Compose
+
+Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services.
+
+*TIP* Docker compose is the technology used by Nuclio to easily create, build and deploy Docker application containers (the functions in this case).
+
 Install Docker Compose using the Docker Compose installation [guide](https://docs.docker.com/compose/install/#install-compose).
 
 ```
@@ -52,21 +63,39 @@ $ sudo curl -L "https://github.com/docker/compose/releases/download/1.22.0/docke
 $ sudo chmod +x /usr/local/bin/docker-compose
 ```
 ------------------------------------------------------------------------------------------------------------------------------
-### Nuclio (High-Performance Serverless event and data processing platform)
+### Nuclio 
 
-Start [Nuclio](https://github.com/nuclio/nuclio) using docker.
+Nuclio (High-Performance Serverless event and data processing platform) is a new "serverless" project, derived from Iguazio's elastic data life-cycle management service for high-performance events and data processing. The simplest way to explore Nuclio is to run its graphical user interface (GUI) of the Nuclio dashboard. 
+
+*TIP* The Nuclio documentation is available at [this link](https://nuclio.io/docs/latest/).
+
+Start [Nuclio](https://github.com/nuclio/nuclio) using a docker container.
 
 ```
 docker run -p 8070:8070 -v /var/run/docker.sock:/var/run/docker.sock -v /tmp:/tmp nuclio/dashboard:stable-amd64
 ```
+
+Browse to http://localhost:8070, create a project, and add a function. When run outside of an orchestration platform (for example, Kubernetes or Swarm), the dashboard will simply deploy to the local Docker daemon.
+
+*TIP*  Nuclio provide also the nctcl application client that allows to basically execute the same operation of Nuclio dashboard.
+
 ----------------------------------------------------------------------------------------------------------------------------
+
 ### RabbitMQ 
 
+RabbitMQ is lightweight and easy to deploy on premises and in the cloud. It supports multiple messaging protocols. RabbitMQ can be deployed in distributed and federated configurations to meet high-scale, high-availability requirements.
+
 Start [RabbitMQ](https://www.rabbitmq.com) instance with MQTT enabled using docker.
+
 ```
 sudo docker run -p 9000:15672  -p 1818:1818 -p 5672:5672  cyrilix/rabbitmq-mqtt 
 ```
+
+Browse to http://localhost:9000, and login using username: guest and password: guest, to access to the RabbitMQ managment, where is possible to visualize the message queues and the broker status.
+
+
 ------------------------------------------------------------------------------------------------------------------------------
+
 #### Library for MQTT and MQTT clients
 
 There are different libraries for many languages for interacting with protocol AMQP and MQTT you can use what you want. For JavScript we used this [library](https://github.com/squaremo/amqp.node).
@@ -74,6 +103,12 @@ There are different libraries for many languages for interacting with protocol A
 -----------------------------------------------------------------------------------------------------------------------------
 
 ## Temperature Example
+
+The temperature example aims to demonstrate the potential of the suggested architecture to collect data from IoT sensors and logging this data on an external data  manager.
+
+The application is composed by four functions:
+* *AMQP Consume Function*
+
 
 ### AMQP Consume Function
 
