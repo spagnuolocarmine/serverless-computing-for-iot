@@ -105,7 +105,7 @@ Browse to http://localhost:9000, and login using username: guest and password: g
 
 ------------------------------------------------------------------------------------------------------------------------------
 
-#### Library for MQTT and MQTT clients
+#### Library for AMQP and MQTT clients
 
 There are different libraries for many languages for interacting with protocol AMQP and MQTT you can use what you want. For JavScript we used this [library](https://github.com/squaremo/amqp.node).
 
