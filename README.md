@@ -43,7 +43,7 @@ $ sudo add-apt-repository \
 $ sudo apt-get update
 $ sudo apt-get install docker-ce
 ```
-
+----------------------------------------------------------------------------------------------------------------------------
 ### Docker Compose
 Install Docker Compose using the Docker Compose installation [guide](https://docs.docker.com/compose/install/#install-compose).
 
@@ -51,7 +51,7 @@ Install Docker Compose using the Docker Compose installation [guide](https://doc
 $ sudo curl -L "https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 $ sudo chmod +x /usr/local/bin/docker-compose
 ```
-
+------------------------------------------------------------------------------------------------------------------------------
 ### Nuclio (High-Performance Serverless event and data processing platform)
 
 Start [Nuclio](https://github.com/nuclio/nuclio) using docker.
@@ -59,13 +59,15 @@ Start [Nuclio](https://github.com/nuclio/nuclio) using docker.
 ```
 docker run -p 8070:8070 -v /var/run/docker.sock:/var/run/docker.sock -v /tmp:/tmp nuclio/dashboard:stable-amd64
 ```
-
+----------------------------------------------------------------------------------------------------------------------------
 ### RabbitMQ 
 
 Start [RabbitMQ](https://www.rabbitmq.com) instance with MQTT enabled using docker.
 ```
 sudo docker run -p 9000:15672  -p 1818:1818 -p 5672:5672  cyrilix/rabbitmq-mqtt 
 ```
+------------------------------------------------------------------------------------------------------------------------------
 #### Library for MQTT and MQTT clients
 
 There are different libraries for many languages for interacting with protocol AMQP and MQTT you can use what you want. For JavScript we used this [library](https://github.com/squaremo/amqp.node).
+-----------------------------------------------------------------------------------------------------------------------------
