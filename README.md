@@ -6,6 +6,8 @@ The Internet of things (IoT) is the network of physical devices, vehicles, home 
 
 We are interest to efficiently collect and elaborate this data, and produce new data as answer to particular condition computed from the data received. Cloud architectures provides an efficient methods to build this kind of applications.
 
+<p align="center"><img src="/assets/iot-architecture.png" width="600"/></p>
+
 #### Tutorial Structure
 
 * **[Audience](#audience)**
