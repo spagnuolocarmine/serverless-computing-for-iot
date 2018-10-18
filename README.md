@@ -42,7 +42,7 @@ In a way, Docker is a bit like a virtual machine. But unlike a virtual machine, 
 
 Install Docker using the Docker CE installation [guide](https://docs.docker.com/install/linux/docker-ce/ubuntu/#extra-steps-for-aufs).
 
-```
+```sh
 $ sudo apt-get update
 $ sudo apt-get install \
     apt-transport-https \
@@ -67,7 +67,7 @@ Compose is a tool for defining and running multi-container Docker applications. 
 
 Install Docker Compose using the Docker Compose installation [guide](https://docs.docker.com/compose/install/#install-compose).
 
-```
+```sh
 $ sudo curl -L "https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 $ sudo chmod +x /usr/local/bin/docker-compose
 ```
@@ -80,8 +80,8 @@ Nuclio (High-Performance Serverless event and data processing platform) is a new
 
 Start [Nuclio](https://github.com/nuclio/nuclio) using a docker container.
 
-```
-docker run -p 8070:8070 -v /var/run/docker.sock:/var/run/docker.sock -v /tmp:/tmp nuclio/dashboard:stable-amd64
+```sh
+$ docker run -p 8070:8070 -v /var/run/docker.sock:/var/run/docker.sock -v /tmp:/tmp nuclio/dashboard:stable-amd64
 ```
 
 Browse to http://localhost:8070, create a project, and add a function. When run outside of an orchestration platform (for example, Kubernetes or Swarm), the dashboard will simply deploy to the local Docker daemon.
@@ -96,8 +96,8 @@ RabbitMQ is lightweight and easy to deploy on premises and in the cloud. It supp
 
 Start [RabbitMQ](https://www.rabbitmq.com) instance with MQTT enabled using docker.
 
-```
-sudo docker run -p 9000:15672  -p 1818:1818 -p 5672:5672  cyrilix/rabbitmq-mqtt 
+```sh
+$ sudo docker run -p 9000:15672  -p 1818:1818 -p 5672:5672  cyrilix/rabbitmq-mqtt 
 ```
 
 Browse to http://localhost:9000, and login using username: guest and password: guest, to access to the RabbitMQ managment, where is possible to visualize the message queues and the broker status.
@@ -128,7 +128,7 @@ The first step to do is access to the Nuclio dashboard and create a new project 
 
 The Temperature Consume Function is written in pure JavaScript and exploits the _amqplib_ JavaScript library to communicate on the "iot/logs" queue the invocation of the function. 
 The JavaScript code is the following:
-```
+```javascript
 var amqp = require('amqplib');
         var FUNCTION_NAME = "amqpconsume";
         function send_feedback(msg){
@@ -168,7 +168,7 @@ var amqp = require('amqplib');
 
 The function is deployed using the Docker compose specifics for Nuclio. This is achieved by define a new yaml file that declares all functions specifications and source code. The source code of the function (the JavaScript code) is encoded in base64 and copied in the attribute "functionSourceCode",  moreover, is defined a new trigger on the amqp protocol that allows to automatically invoke the function when a new message is coming on the queue "iot/sensors" for the routing key "temperature". Since the functions exploits the amqplib in the "commands" attribute is added the command to install on Node.js the amqplib (npm install amqplib).
 
-```
+```yaml
 apiVersion: "nuclio.io/v1"
 kind: Function
 metadata:
@@ -209,7 +209,7 @@ The Send Temperature Function is written in pure JavaScript and exploits the _am
 
 The JavaScript code is the following:
 
-```
+```javascript
 var amqp = require('amqplib');
 
 exports.handler = function(context, event) {
@@ -233,7 +233,7 @@ exports.handler = function(context, event) {
 ```
 The function is deployed on Nuclio in the same way of the Consume Temperature Function. 
 
-```
+```yaml
 apiVersion: "nuclio.io/v1"
 kind: Function
 metadata:
@@ -268,7 +268,7 @@ Each function in Nuclio is identified by the serving port, you can see the servi
 
 The logger function is written in pure JavaScript and exploits the _amqplib_ JavaScript library to receive messages on the queue "iot/logs". 
 
-```
+```javascript
 var amqp = require('amqplib');
 
 amqp.connect('amqp://guest:guest@172.16.15.52:5672').then(function(conn) {
@@ -292,7 +292,7 @@ amqp.connect('amqp://guest:guest@172.16.15.52:5672').then(function(conn) {
 
 In order to execute this function is require Node.js and the amqlib library. The following commands execute the logger:
 
-```
+```sh
 $ npm install amqlib
 $ node logger.js
 ```
@@ -302,7 +302,7 @@ $ node logger.js
 The IoT Client could be written in any language for any platform that support the AMQP protocol.  In order to emphasize that the following JavaScript code allow to send on the "iot/sensors" queue for the routing key "temperature" a number of random temperature values (the first integer argument of the function).  The Client is written in pure JavaScript and exploits the _amqplib_ JavaScript library to communicate on the "iot/sensors" queue  for routing key "temperature" a new temperature value.
 
 
-```
+```javascript
 var args = process.argv.slice(2);
 console.log(args);
 var amqp = require('amqplib');
@@ -325,7 +325,7 @@ for (var i = 0; i < args[0]; i++) {
 
 In order to execute this function is require Node.js and the amqlib library. The following commands execute the logger:
 
-```
+```sh
 $ npm install amqlib
 $ node send_temperature.js
 ```
