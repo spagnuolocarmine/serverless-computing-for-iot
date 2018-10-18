@@ -1,5 +1,12 @@
 # Serverless Computing for IoT
 
+Serverless computing is a cloud-computing execution model in which the cloud provider acts as the server, dynamically managing the allocation of machine resources.  Serverless Computing exploits Function as a service (FaaS) that is a category of cloud computing services that provides a platform allowing customers to develop, run, and manage application functionalities without the complexity of building and maintaining the infrastructure typically associated with developing and launching an app.Building an application following this model is one way of achieving a "serverless" architecture, and is typically used when building microservices applications.
+
+The Internet of things (IoT) is the network of physical devices, vehicles, home appliances, and other items embedded with electronics, software, sensors, actuators, and connectivity which enables these things to connect, collect and exchange data.
+
+We are interest to efficiently collect and elaborate this data, and produce new data as answer to particular condition computed from the data received. Cloud architectures provides an efficient methods to build this kind of applications.
+
+
 ## Audience
 This tutorial is designed for building a computing architecture, based on open-source software,  that allows the users to exploit Function-as-service model in the context of IoT. The idea is provides a system which allows as in Amazon Aws or Microsoft Azure, and so on, to deploy functions that are trigged by events generated from small devices such as sensors and  mobile (IoT devices), commonly these devices communicates using message-passing, in particular on dedicated protocols as AMQP or MQTT.  
 
