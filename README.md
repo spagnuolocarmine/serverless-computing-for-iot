@@ -258,6 +258,12 @@ For deploying the function you can access, from the Nuclio dashboard, to the pro
 
 The same procedure could be achieved but create new function and copy the JavaScript code in the edidor part, and create the new trigger for the AMQP messages.
 
+**TIP** For invoking the function is possible to press the button "TEST" in the dashboard. Moreover, in Nuclio is possible to invoke function by generating an HTTP event, the following command invoke the function:
+```
+curl -X POST -H "Content-Type: application/text"  http://localhost:39823
+```
+Each function in Nuclio is identified by the serving port, you can see the serving port in the dashboard (change the port in the url http://localhost:PORT).
+
 ### Logger
 
 The logger function is written in pure JavaScript and exploits the _amqplib_ JavaScript library to receive messages on the queue "iot/logs". 
@@ -323,3 +329,11 @@ In order to execute this function is require Node.js and the amqlib library. The
 $ npm install amqlib
 $ node send_temperature.js
 ```
+
+## Docker TIPS
+
+In this section are presentented several Docker useful commands:
+- Docker container ID: ```sudo docker ps -a```, displays all deployed containers, rember that functions are Docker containers, the IMAGE field is the function name and version, while the CONTAINER ID is the ID of the function. In this view is also possible to see the listening port for the function in the field PORTS.
+- Docker Logs: ```sudo docker log CONTAINER ID```, displays the STDOUT and STDERR of the associated container.
+- Docker Kill: ```sudo docker kill CONTAINER ID```, kills the associated container.
+- Docker Remove: ```sudo docker rm CONTAINER ID```, removes the associated container.
