@@ -48,5 +48,10 @@ docker run -p 8070:8070 -v /var/run/docker.sock:/var/run/docker.sock -v /tmp:/tm
 
 ### RabbitMQ 
 
-#### Library for JavaScript
-https://github.com/squaremo/amqp.node
+Start [RabbitMQ](https://www.rabbitmq.com) instance with MQTT enabled using docker.
+```
+sudo docker run -p 9000:15672  -p 1818:1818 -p 5672:5672  cyrilix/rabbitmq-mqtt 
+```
+#### Library for MQTT and MQTT clients
+
+There are different libraries for many languages for interacting with protocol AMQP and MQTT you can use what you want. For JavScript we used this [library](https://github.com/squaremo/amqp.node).
