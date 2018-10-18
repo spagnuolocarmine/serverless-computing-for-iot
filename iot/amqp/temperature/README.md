@@ -144,7 +144,7 @@ spec:
 ```
 For deploying the function you can access, from the Nuclio dashboard, to the project IOT and create new function. When the system ask to create new function you have to select the import form yaml, and load the file "iot/temperature/amqpevent.yaml". At this point the dashboard show you the function IDE where it is needed to deploy on the system the function pressing the button "Deploy".
 
-The same procedure could be achieved but create new function and copy the JavaScript code in the edidor part, and create the new trigger for the AMQP messages.
+The same procedure could be achieved but create new function and copy the JavaScript code in the edidor part.
 
 **TIP** For invoking the function is possible to press the button "TEST" in the dashboard. Moreover, in Nuclio is possible to invoke function by generating an HTTP event, the following command invoke the function:
 ```
