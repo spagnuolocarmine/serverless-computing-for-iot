@@ -146,3 +146,94 @@ spec:
     codeEntryType: sourceCode
   platform: {}
 ```
+### AMQP Event Function
+```
+var amqp = require('amqplib');
+
+exports.handler = function(context, event) {
+    var key = 'temperature';
+    var message = '20';
+
+    amqp.connect('amqp://guest:guest@172.16.15.52:5672').then(function(conn) {
+    return conn.createChannel().then(function(ch) {
+        var ex = 'iot/sensors';
+        var ok = ch.assertExchange(ex, 'topic', {durable: false});
+        return ok.then(function() {
+            ch.publish(ex, key, Buffer.from(message));
+            console.log(" [x] Sent %s:'%s'", key, message);
+            return ch.close();
+        });
+    }).finally(function() { conn.close();  })
+    }).catch(console.log);
+    
+    context.callback('send '+message);
+};
+```
+```
+apiVersion: "nuclio.io/v1"
+kind: Function
+metadata:
+  name: amqpevent
+  namespace: nuclio
+spec:
+  handler: "main:handler"
+  description: "Function that generate an event on the AMQP queue sending a temperature value."
+  runtime: nodejs
+  image: "nuclio/processor-amqpevent:latest"
+  minReplicas: 1
+  maxReplicas: 1
+  targetCPU: 75
+  build:
+    functionSourceCode: dmFyIGFtcXAgPSByZXF1aXJlKCdhbXFwbGliJyk7CgpleHBvcnRzLmhhbmRsZXIgPSBmdW5jdGlvbihjb250ZXh0LCBldmVudCkgewogICAgdmFyIGtleSA9ICd0ZW1wZXJhdHVyZSc7CiAgICB2YXIgbWVzc2FnZSA9ICcyMCc7CgogICAgYW1xcC5jb25uZWN0KCdhbXFwOi8vZ3Vlc3Q6Z3Vlc3RAMTcyLjE2LjE1LjUyOjU2NzInKS50aGVuKGZ1bmN0aW9uKGNvbm4pIHsKICAgIHJldHVybiBjb25uLmNyZWF0ZUNoYW5uZWwoKS50aGVuKGZ1bmN0aW9uKGNoKSB7CiAgICAgICAgdmFyIGV4ID0gJ2lvdC9zZW5zb3JzJzsKICAgICAgICB2YXIgb2sgPSBjaC5hc3NlcnRFeGNoYW5nZShleCwgJ3RvcGljJywge2R1cmFibGU6IGZhbHNlfSk7CiAgICAgICAgcmV0dXJuIG9rLnRoZW4oZnVuY3Rpb24oKSB7CiAgICAgICAgICAgIGNoLnB1Ymxpc2goZXgsIGtleSwgQnVmZmVyLmZyb20obWVzc2FnZSkpOwogICAgICAgICAgICBjb25zb2xlLmxvZygiIFt4XSBTZW50ICVzOiclcyciLCBrZXksIG1lc3NhZ2UpOwogICAgICAgICAgICByZXR1cm4gY2guY2xvc2UoKTsKICAgICAgICB9KTsKICAgIH0pLmZpbmFsbHkoZnVuY3Rpb24oKSB7IGNvbm4uY2xvc2UoKTsgIH0pCiAgICB9KS5jYXRjaChjb25zb2xlLmxvZyk7CiAgICAKICAgIGNvbnRleHQuY2FsbGJhY2soJ3NlbmQgJyttZXNzYWdlKTsKfTs=
+    commands:
+      - 'npm install amqplib'
+    codeEntryType: sourceCode
+  platform: {}
+```
+
+### AMQP Node.js Logger
+
+```
+var amqp = require('amqplib');
+
+amqp.connect('amqp://guest:guest@172.16.15.52:5672').then(function(conn) {
+  process.once('SIGINT', function() { conn.close(); });
+  return conn.createChannel().then(function(ch) {
+
+    var ok = ch.assertQueue('iot/logs', {durable: false});
+
+    ok = ok.then(function(_qok) {
+      return ch.consume('iot/logs', function(msg) {
+        console.log(" [x] Received '%s'", msg.content.toString());
+      }, {noAck: true});
+    });
+
+    return ok.then(function(_consumeOk) {
+      console.log(' [*] Waiting for messages. To exit press CTRL+C');
+    });
+  });
+}).catch(console.warn);
+```
+
+### AMQP Node.js Client
+
+```
+var args = process.argv.slice(2);
+console.log(args);
+var amqp = require('amqplib');
+for (var i = 0; i < args[0]; i++) {
+       var key = 'temperature';
+       amqp.connect('amqp://guest:guest@172.16.15.52:5672').then(function(conn) {
+       return conn.createChannel().then(function(ch) {
+           var ex = 'iot/sensors';
+           var ok = ch.assertExchange(ex, 'topic', {durable: false});
+           return ok.then(function() {
+                var message = Math.floor(Math.random()*20);
+               ch.publish(ex, key, Buffer.from(message.toString()));
+               console.log(" [x] Sent %s:'%s'", key, message.toString());
+               return ch.close();
+           });
+       }).finally(function() { conn.close();  })
+       }).catch(console.log);
+}
+```
