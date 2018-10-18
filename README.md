@@ -107,7 +107,8 @@ There are different libraries for many languages for interacting with protocol A
 The temperature example aims to demonstrate the potential of the suggested architecture to collect data from IoT sensors and logging this data on an external data  manager.
 
 The application is composed by four functions:
-* **AMQP Consume Function**
+* **[AMQP Consume Function](#AMQP-Consume-Function)**
+* **[AMQP Event Function](#AMQP-Event-Function)**
 
 
 ### AMQP Consume Function
