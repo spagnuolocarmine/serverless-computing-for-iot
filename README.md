@@ -121,8 +121,8 @@ There are different libraries for many languages for interacting with protocol A
 
 ## Examples
 
-- Temperature using AMQP
-- Temperature using MQTT
+- [Temperature using AMQP](https://github.com/spagnuolocarmine/serverless-computing-for-iot/blob/master/iot/amqp/temperature)
+- [Temperature using MQTT](https://github.com/spagnuolocarmine/serverless-computing-for-iot/blob/master/iot/mqtt/temperature)
 
 ### MQTT Android Clients
 
