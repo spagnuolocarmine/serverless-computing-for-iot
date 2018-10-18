@@ -337,3 +337,10 @@ In this section are presentented several Docker useful commands:
 - Docker Logs: ```sudo docker log CONTAINER ID```, displays the STDOUT and STDERR of the associated container.
 - Docker Kill: ```sudo docker kill CONTAINER ID```, kills the associated container.
 - Docker Remove: ```sudo docker rm CONTAINER ID```, removes the associated container.
+
+##### Authors
+ISISLab - Univeristà degli Studi di Salerno
+- Vittorio Scarano
+- Carmine Spagnuolo
+- Matteo D'Auria
+
