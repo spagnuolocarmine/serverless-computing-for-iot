@@ -330,6 +330,9 @@ $ npm install amqlib
 $ node send_temperature.js
 ```
 
+-----------------------------------------------------------------------------------------------------------------------------------
+
+
 ## Docker TIPS
 
 In this section are presentented several Docker useful commands:
@@ -338,7 +341,9 @@ In this section are presentented several Docker useful commands:
 - Docker Kill: ```sudo docker kill CONTAINER ID```, kills the associated container.
 - Docker Remove: ```sudo docker rm CONTAINER ID```, removes the associated container.
 
-##### Authors
+-----------------------------------------------------------------------------------------------------------------------------------
+
+**Authors**
 ISISLab - Univeristà degli Studi di Salerno
 - Vittorio Scarano
 - Carmine Spagnuolo
