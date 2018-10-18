@@ -1,4 +1,5 @@
-## Temperature Example
+
+## AMQP Temperature Example
 
 The temperature example aims to demonstrate the potential of the suggested architecture to collect data from IoT sensors and logging this data on an external data  manager.
 
@@ -10,7 +11,6 @@ The application is composed by four functions:
 * **[IoT Client](#iot-client)**, an example IoT client written in JavaScript and executed on Node.js. This function generates new temperature event (containing the temperature value) on the AMQP to the queue "iot/sensors" for a routing key "temperature". The IoT client client could be any client that support the AMQP transport protocol.
 
 The first step to do is access to the Nuclio dashboard and create a new project named IOT.
-
 
 ### Temperature Consume Function
 
@@ -217,3 +217,6 @@ In order to execute this function is require Node.js and the amqlib library. The
 $ npm install amqlib
 $ node send_temperature.js
 ```
+
+-----------------------------------------------------------------------------------------------------------------------------------
+

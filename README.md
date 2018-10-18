@@ -13,7 +13,7 @@ We are interest to efficiently collect and elaborate this data, and produce new 
 * **[Audience](#audience)**
 * **[Prerequisites](#prerequisites)**
 * **[Installation](#installation)**
-* **[Temperature Example](#temperature-example)**
+* **[Examples](#examples)**
 
 
 ## Audience
@@ -117,7 +117,16 @@ Browse to http://localhost:9000, and login using username: guest and password: g
 
 #### Library for AMQP and MQTT clients
 
-There are different libraries for many languages for interacting with protocol AMQP and MQTT you can use what you want. For JavScript we used this [library](https://github.com/squaremo/amqp.node).
+There are different libraries for many languages for interacting with protocol AMQP and MQTT you can use what you want. For JavScript AMQP we used this [library](https://github.com/squaremo/amqp.node), while for JavaScript MQTT we used this [library](https://github.com/mqttjs/MQTT.js).
+
+## Examples
+
+- Temperature using AMQP
+- Temperature using MQTT
+
+### MQTT Android Clients
+
+We used a general purpose [MQTT client](https://play.google.com/store/apps/details?id=in.dc297.mqttclpro) for Android.
 
 -----------------------------------------------------------------------------------------------------------------------------
 
