@@ -108,7 +108,7 @@ The temperature example aims to demonstrate the potential of the suggested archi
 
 The application is composed by four functions:
 * **[AMQP Consume Function](#AMQP-Consume-Function)**
-* **[AMQP Event Function](#AMQP-Event-Function)**
+* **[AMQP Event Function](#amqp-event-function)**
 
 
 ### AMQP Consume Function
