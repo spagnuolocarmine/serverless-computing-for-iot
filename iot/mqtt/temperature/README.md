@@ -192,3 +192,4 @@ $ node logger.js
 ### IoT Client
 
 The IoT Client could be written in any language for any platform that support the MQTT protocol. For this example we have used a general purpose  [MQTT Android Client](https://play.google.com/store/apps/details?id=in.dc297.mqttclpro). In this app you can connect to the RabbitMQ broker using the protocol MQTT (just create new connection to the IP where the RabbitMQ are running). After created the connection you can easily send values on some topic.
+<p align="center"><img src="/assets/mqtt_android.png" width="1000"/></p>
