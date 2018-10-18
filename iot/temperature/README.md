@@ -1,3 +1,17 @@
+## Temperature Example
+
+The temperature example aims to demonstrate the potential of the suggested architecture to collect data from IoT sensors and logging this data on an external data  manager.
+
+The application is composed by four functions:
+
+* **[Consume Temperature Function](#consume-temperature-function)**, is triggered by a new AMQP message on the queue "iot/sensors" for a routing key "temperature".
+* **[Send Temperature Function](#send-temperature-function)**, sends a new temperature value on the AMQP to the queue "iot/sensors" for a routing key "temperature".
+* **[Logger](#logger)**, logs the invocation of the consume function, this functions is in waiting for a new messages on the queue AMQP "iot/logs". Is a JavaScript function for Node.js and is executed on an external machine. 
+* **[IoT Client](#iot-client)**, an example IoT client written in JavaScript and executed on Node.js. This function generates new temperature event (containing the temperature value) on the AMQP to the queue "iot/sensors" for a routing key "temperature". The IoT client client could be any client that support the AMQP transport protocol.
+
+The first step to do is access to the Nuclio dashboard and create a new project named IOT.
+
+
 ### Temperature Consume Function
 
 The Temperature Consume Function is written in pure JavaScript and exploits the _amqplib_ JavaScript library to communicate on the "iot/logs" queue the invocation of the function. 
