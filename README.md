@@ -141,7 +141,7 @@ In this section are presentented several Docker useful commands:
 -----------------------------------------------------------------------------------------------------------------------------------
 
 **Authors**
-ISISLab - Univeristà degli Studi di Salerno
+ISISLab - Università degli Studi di Salerno
 - Vittorio Scarano
 - Carmine Spagnuolo
 - Matteo D'Auria
