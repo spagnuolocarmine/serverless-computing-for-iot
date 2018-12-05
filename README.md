@@ -134,7 +134,7 @@ We used a general purpose [MQTT client](https://play.google.com/store/apps/detai
 
 In this section are presentented several Docker useful commands:
 - Docker container ID: ```sudo docker ps -a```, displays all deployed containers, rember that functions are Docker containers, the IMAGE field is the function name and version, while the CONTAINER ID is the ID of the function. In this view is also possible to see the listening port for the function in the field PORTS.
-- Docker Logs: ```sudo docker log CONTAINER ID```, displays the STDOUT and STDERR of the associated container.
+- Docker Logs: ```sudo docker logs CONTAINER ID```, displays the STDOUT and STDERR of the associated container.
 - Docker Kill: ```sudo docker kill CONTAINER ID```, kills the associated container.
 - Docker Remove: ```sudo docker rm CONTAINER ID```, removes the associated container.
 
