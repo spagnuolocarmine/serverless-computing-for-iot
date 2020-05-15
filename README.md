@@ -107,7 +107,7 @@ RabbitMQ is lightweight and easy to deploy on premises and in the cloud. It supp
 Start [RabbitMQ](https://www.rabbitmq.com) instance with MQTT enabled using docker.
 
 ```sh
-$ sudo docker run -p 9000:15672  -p 1883:1883 -p 5672:5672  cyrilix/rabbitmq-mqtt 
+$ docker run -p 9000:15672  -p 1883:1883 -p 5672:5672  cyrilix/rabbitmq-mqtt 
 ```
 
 Browse to http://localhost:9000, and login using username: guest and password: guest, to access to the RabbitMQ managment, where is possible to visualize the message queues and the broker status.

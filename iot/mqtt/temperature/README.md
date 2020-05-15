@@ -185,7 +185,7 @@ amqp.connect('amqp://guest:guest@172.16.15.52:5672').then(function(conn) {
 In order to execute this function is require Node.js and the amqlib library. The following commands execute the logger:
 
 ```sh
-$ npm install amqlib
+$ npm install amqplib
 $ node logger.js
 ```
 
