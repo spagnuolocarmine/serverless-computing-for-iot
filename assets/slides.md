@@ -223,19 +223,11 @@ $ docker run -p 9000:15672  -p 1883:1883 -p 5672:5672  cyrilix/rabbitmq-mqtt
 
 # Library for AMQP and MQTT clients
 
-- There are different libraries for many languages for interacting with protocol AMQP and MQTT you can use what you want. 
-- For JavScript AMQP we used this [library](https://github.com/squaremo/amqp.node), while for JavaScript MQTT we used this [library](https://github.com/mqttjs/MQTT.js).
+- There are different libraries for many languages for interacting with protocol AMQP and MQTT you can use what you want. We use:
+  - [AMQP 0-9-1](https://github.com/squaremo/amqp.node) for Javascript AMQP.
+  - [MQTT.js](https://github.com/mqttjs/MQTT.js) for JavaScript MQTT.
 
-
-<!---
-## Examples
-
-- [Temperature using AMQP](https://github.com/spagnuolocarmine/serverless-computing-for-iot/blob/master/iot/amqp/temperature)
-- [Temperature using MQTT](https://github.com/spagnuolocarmine/serverless-computing-for-iot/blob/master/iot/mqtt/temperature)
-
--->
-
-- We used a general purpose [MQTT client](https://play.google.com/store/apps/details?id=in.dc297.mqttclpro) for Android.
+We used a general purpose [MQTT client](https://play.google.com/store/apps/details?id=in.dc297.mqttclpro) for Android.
 
 ---
 
@@ -429,7 +421,7 @@ exports.handler = function(context, event) {
 ```
 
 ---
-# Send Random Temperature Function .yaml file
+# Send Random Temperature Function
 
 ```yaml
 apiVersion: "nuclio.io/v1"
@@ -456,7 +448,7 @@ spec:
 
 ---
 
-# Send Random Temperature Function using Dashboard
+# Send Random Temperature Function deploy
 
 - For deploying the function you can access, from the Nuclio dashboard, to the project IOT-MQTT and create new function. 
 - When the system ask to create new function you have to select the import form yaml, and load the file "iot/temperature/amqpevent.yaml". 
