@@ -16,6 +16,10 @@ img[alt~="center"] {
 [iotarch]: https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/iot-architecture.png
 [android]: https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/mqtt_android.png
 [nuclioproject]: https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/nuclio_project.png
+[serverless]: https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/serverless.png
+[faas]: https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/faas.png
+[iot]: /home/matdau/git/serverless-computing-for-iot/assets/iot.png
+
 <!-- 
 _class: invert 
 _paginate: false
@@ -55,20 +59,30 @@ _ISISLab - Università degli Studi di Salerno_
 # Serverless Computing
 
 - Serverless computing is a cloud-computing execution model in which the cloud provider acts as the server, dynamically managing the allocation of machine resources.  
-- Serverless Computing exploits Function as a service (FaaS) that is a category of cloud computing services that provides a platform allowing customers to develop, run, and manage application functionalities without the complexity of building and maintaining the infrastructure typically associated with developing and launching an app.
-- Building an application following this model is one way of achieving a "serverless" architecture, and is typically used when building microservices applications.
+
+![h:400 center][serverless]
 
 ---
+
+# Function as a Service
+
+- A category of cloud computing services that allow customers to:
+  -  develop,
+  -  run,
+  -  and manage application functionalities
+-  without the complexity of building and maintaining the infrastructure typically associated with developing and launching an app.
+<!--- - Building an application following this model is one way of achieving a "serverless" architecture, and is typically used when building microservices applications.
+-->
+![bg right:20%][faas]
+
+---
+
 # The Internet of Thing
 
-The Internet of things (IoT) is the network of physical devices, vehicles, home appliances, and other items embedded with electronics, software, sensors, actuators, and connectivity which enables these things to connect, collect and exchange data.
+- The Internet of things (IoT) is the network of physical devices, vehicles, home appliances, and other items embedded with electronics, software, sensors, actuators, and connectivity which enables these things to connect, collect and exchange data.
 
-We are interest to efficiently collect and elaborate this data, and produce new data as answer to particular condition computed from the data received. 
-
----
-# Serverless Computing for IoT 
-
-![][iotarch]
+- We are interest to efficiently collect and elaborate this data, and produce new data as answer to particular condition computed from the data received. 
+![bg right:20%][iot]
 
 ---
 
@@ -77,6 +91,12 @@ We are interest to efficiently collect and elaborate this data, and produce new 
 - Designed to show how to build a computing architecture, based on open-source software, that allows the users to exploit Function-as-service model in the context of IoT.
 - The idea is provide a system which allows to deploy functions that are trigged by events generated from small devices such as sensors and  mobile (IoT devices), commonly these devices communicates using message-passing, in particular on dedicated protocols as AMQP or MQTT.  
 - This tutorial provides examples that deploy a function able to log the temperature value received by a sensor on the AMQP protocol.
+
+---
+
+# Serverless Computing Application Architecture
+
+![][iotarch]
 
 ---
 
@@ -150,7 +170,8 @@ sudo ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
 
 # Docker Compose
 
-- Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services.
+- Compose is a tool for defining and running multi-container Docker applications. 
+- With Compose, you use a YAML file to configure your application’s services.
 
 <!--- **TIP** Docker compose is the technology used by Nuclio to easily create, build and deploy Docker application containers (the functions in this case).-->
 
@@ -317,7 +338,7 @@ var amqp = require('amqplib');
 ```
 ---
 
-# Temperature Consume Function .yaml
+# Temperature Consume Function
 
 - The function is deployed using the Docker compose specifics for Nuclio. 
 - This is achieved by define a new .yaml file that declares all functions specifications and source code. 
@@ -327,7 +348,7 @@ var amqp = require('amqplib');
 
 ---
 
-# Temperature Consume Function .yaml file
+# Temperature Consume Function
 
 ```yaml
 apiVersion: "nuclio.io/v1"
@@ -360,7 +381,7 @@ spec:
 ```
 
 ---
-# Temperature Consume Function using Dashboard
+# Temperature Consume Function deploy
 
 - For deploying the function you can access, from the Nuclio dashboard, to the project IOT-MQTT and create new function. 
 - When the system ask to create new function you have to select the import form yaml, and load the file "iot/mqtt/temperature/amqpconsume.yaml". At this point the dashboard show you the function IDE where it is needed to deploy on the system the function pressing the button "Deploy".
