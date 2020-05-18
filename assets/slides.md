@@ -337,7 +337,7 @@ We used a general purpose [MQTT client](https://play.google.com/store/apps/detai
 _class: invert 
 _paginate: false
 -->
-![h:500](https://cdn1.iconfinder.com/data/icons/internet-of-things-multicilor/512/Internet_of_things-ps_style-19-512.png) 
+![h:500 center](https://cdn1.iconfinder.com/data/icons/internet-of-things-multicilor/512/Internet_of_things-ps_style-19-512.png) 
 
 ---
 
@@ -386,7 +386,7 @@ _paginate: false
 -->
 
 ### Temperature  Consume Function
-![h:500](https://media0.giphy.com/media/d2ItDZZumUI6Y/200.gif) 
+![h:500 center](https://media0.giphy.com/media/d2ItDZZumUI6Y/200.gif) 
 
 ---
 
@@ -507,7 +507,7 @@ _paginate: false
 -->
 
 ### Send Random Temperature Function
-![h:500](https://i.gifer.com/4n4S.gif) 
+![h:500 center](https://i.gifer.com/4n4S.gif) 
 
 ---
 # Send Random Temperature Function
@@ -615,7 +615,7 @@ _paginate: false
 -->
 
 ### Logger Server
-![h:500](https://i.gifer.com/5SOi.gif) 
+![h:500 center](https://i.gifer.com/5SOi.gif) 
 
 ---
 
