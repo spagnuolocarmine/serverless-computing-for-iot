@@ -46,13 +46,14 @@ _ISISLab - Università degli Studi di Salerno_
 
 ---
 
-# Homework support organization
+# Labs organization
 
 - We talk (asynchronously) on the 
   - Discord ISISLab community [![h:50](https://img.shields.io/discord/693092516286693387.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/BTt5fUp)
   - channel CLASSES ```#serverless``` 
 - or you can schedule an online meeting (synchronously) during the official course hours (on the same platform).
 
+[![ h:50](https://img.shields.io/badge/GitHub-serverless--computing--for--iot-blue)](https://github.com/spagnuolocarmine/serverless-computing-for-iot)
 
 ---
 
@@ -66,48 +67,50 @@ _ISISLab - Università degli Studi di Salerno_
 
 # Function as a Service
 
-- A category of cloud computing services that allow customers to:
+- Cloud computing services that allow customers to:
   -  develop,
   -  run,
   -  and manage application functionalities
--  without the complexity of building and maintaining the infrastructure typically associated with developing and launching an app.
+- **Advantage**: no complexity of building and maintaining the hardware/software infrastructure.
 <!--- - Building an application following this model is one way of achieving a "serverless" architecture, and is typically used when building microservices applications.
 -->
 ![bg right:20%][faas]
 
 ---
 
-# The Internet of Thing
+# The Internet of Thing (IoT)
 
-- The Internet of things (IoT) is the network of physical devices, vehicles, home appliances, and other items embedded with electronics, software, sensors, actuators, and connectivity which enables these things to connect, collect and exchange data.
+- A network of physical devices, vehicles, home appliances, and other items embedded with electronics, software, sensors, actuators, and connectivity which enables these things to connect, collect and exchange data.
 
-- We are interest to efficiently collect and elaborate this data, and produce new data as answer to particular condition computed from the data received. 
+- **Course goal**:  
+  - efficiently collect and elaborate data, produce new data as answer to particular condition computed from the data received. 
+  - integrate different cloud services to build an IoT application by using only open-source software. 
 ![bg right:20%][iot]
 
 ---
 
-# Why this tutorial?
+# Lesson Objectives
 
-- Designed to show how to build a computing architecture, based on open-source software, that allows the users to exploit Function-as-service model in the context of IoT.
-- The idea is provide a system which allows to deploy functions that are trigged by events generated from small devices such as sensors and  mobile (IoT devices), commonly these devices communicates using message-passing, in particular on dedicated protocols as AMQP or MQTT.  
-- This tutorial provides examples that deploy a function able to log the temperature value received by a sensor on the AMQP protocol.
+- _**Design**_ a computing architecture, based on open-source software, that allows the users to exploit Function-as-service model in the context of IoT.
+- The system must allows to _**deploy**_ functions that are _**trigged**_ by events generated from small devices such as sensors and  mobile (IoT devices)
+-  Use the _**message-passing**_ communication paradigm, in particular on dedicated protocols as AMQP or MQTT.  
+
 
 ---
 
-# Serverless Computing Application Architecture
+# Open-source Architecture
 
 ![][iotarch]
 
 ---
 
-# Prerequisites
-- OS: 
-    - Ubuntu 18.04 LTS
-- Software:
-    - Docker and Docker Compose (Application containers engine)
-    - Nuclio (Serverless computing provider)
-    - RabbitMQ (AMQP and MQTT message broker)
-    - Node.js
+# Architecture Components
+
+- Ubuntu 18.04 LTS ![h:50](https://img.shields.io/github/forks/nodejs/node?style=social)
+- Application containers engine Docker and Docker Compose ![h:50](https://img.shields.io/github/forks/docker/compose?style=social)
+- Serverless computing provider Nuclio ![h:50](https://img.shields.io/github/forks/nuclio/nuclio?style=social)
+ - AMQP and MQTT message broker RabbitMQ ![h:50](https://img.shields.io/github/forks/rabbitmq/rabbitmq-server?style=social)
+- JavaScript Application runtime Node.js ![h:50](https://img.shields.io/github/forks/nodejs/node?style=social)
 
 ---
 
@@ -120,21 +123,15 @@ This tutorial is made on top of one local machine an Linux Ubuntu 18.04 LTS mach
 -->
 
 
-# Docker
+# Docker ![h:100](https://avatars0.githubusercontent.com/u/5429470?s=200&v=4)
 
 - Docker is a tool designed to make it easier to create, deploy, and run applications by using containers. 
-- Containers allow a developer to package up an application with all of the parts it needs, such as libraries and other dependencies, and ship it all out as one package. 
-- Thanks to the container, the developer can rest assured that the application will run on any other Linux machine regardless of any customized settings that machine might have that could differ from the machine used for writing and testing the code.
- 
----
-# Docker
-- In a way, Docker is a bit like a virtual machine. But unlike a virtual machine, rather than creating a whole virtual operating system, Docker allows applications to use the same Linux kernel as the system that they're running on and only requires applications be shipped with things not already running on the host computer. This gives a significant performance boost and reduces the size of the application.
 
-- Docker is used in the architecture to deploy the function in an application container, each function is a Docker container that is listening on a socket port and can be invoked by an HTTP request, or by other triggers.
+![w:800](https://www.guruadvisor.net/images/numero17/docker/docker-architecture.png)
 
 ---
 
-# Docker Installation
+# Docker Installation ![h:100](https://avatars0.githubusercontent.com/u/5429470?s=200&v=4)
 
 
 Install Docker using the Docker CE installation [guide](https://docs.docker.com/install/linux/docker-ce/ubuntu/#extra-steps-for-aufs)
@@ -157,9 +154,11 @@ $ sudo apt-get install docker-ce
  ```
 
 ---
-# Docker IMPORTANT FIX
+# Docker IMPORTANT FIX ![h:100](https://avatars0.githubusercontent.com/u/5429470?s=200&v=4)
 
-- Ubuntu 18.04 changed to use systemd-resolved to generate /etc/resolv.conf. Now by default it uses a local DNS cache 127.0.0.53. That will not work inside a container, so Docker will default to Google's 8.8.8.8 DNS server, which may break for people behind a firewall.
+- Ubuntu 18.04 changed to use systemd-resolved to generate /etc/resolv.conf.
+-  Now by default it uses a local DNS cache 127.0.0.53. 
+- It will not work inside a container, so Docker will default to Google's 8.8.8.8 DNS server, which may break for people behind a firewall.
 <!--- Refers to the [Stackoverflow discussion](https://stackoverflow.com/questions/20430371/my-docker-container-has-no-internet).-->
 
 ```sh
@@ -168,7 +167,7 @@ sudo ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
 ---
 
 
-# Docker Compose
+# Docker Compose ![h:100](https://avatars0.githubusercontent.com/u/5429470?s=200&v=4)
 
 - Compose is a tool for defining and running multi-container Docker applications. 
 - With Compose, you use a YAML file to configure your application’s services.
@@ -185,20 +184,21 @@ $ sudo chmod +x /usr/local/bin/docker-compose
 
 ---
 
-# Nuclio (High-Performance Serverless event and data processing platform)
+# Nuclio ![h:100](https://github.com/nuclio/nuclio/raw/development/docs/assets/images/logo.png)
 
-- Nuclio  is a new "serverless" project, derived from Iguazio's elastic data life-cycle management service for high-performance events and data processing. 
+- Is a new "serverless" project, derived from Iguazio's elastic data life-cycle management service for high-performance events and data processing. 
 - The simplest way to explore Nuclio is to run its graphical user interface (GUI) of the Nuclio dashboard. 
 
 - The Nuclio documentation is available at [this link](https://nuclio.io/docs/latest/).
 
 ---
-# Nuclio 
+# Nuclio ![h:100](https://github.com/nuclio/nuclio/raw/development/docs/assets/images/logo.png)
 
 - Start [Nuclio](https://github.com/nuclio/nuclio) using a docker container.
 
 ```sh
-$ docker run -p 8070:8070 -v /var/run/docker.sock:/var/run/docker.sock -v /tmp:/tmp nuclio/dashboard:stable-amd64
+$ docker run -p 8070:8070 -v /var/run/docker.sock:/var/run/
+docker.sock -v /tmp:/tmp nuclio/dashboard:stable-amd64
 ```
 - Browse to http://localhost:8070, create a project, and add a function. 
 - When run outside of an orchestration platform (for example, Kubernetes or Swarm), the dashboard will simply deploy to the local Docker daemon.
@@ -207,7 +207,16 @@ $ docker run -p 8070:8070 -v /var/run/docker.sock:/var/run/docker.sock -v /tmp:/
 
 ---
 
-# RabbitMQ 
+
+# Nuclio ![h:100](https://github.com/nuclio/nuclio/raw/development/docs/assets/images/logo.png)
+
+**How to deploy functions in Nuclio using the Nuclio dashboard:**
+
+- here
+
+---
+
+# RabbitMQ ![h:100](https://avatars0.githubusercontent.com/u/96669?s=200&v=4)
 
 - RabbitMQ is lightweight and easy to deploy on premises and in the cloud. It supports multiple messaging protocols. RabbitMQ can be deployed in distributed and federated configurations to meet high-scale, high-availability requirements.
 
@@ -221,7 +230,7 @@ $ docker run -p 9000:15672  -p 1883:1883 -p 5672:5672  cyrilix/rabbitmq-mqtt
 
 ---
 
-# Library for AMQP and MQTT clients
+# AMQP and MQTT JS clients ![h:100](https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/480px-Unofficial_JavaScript_logo_2.svg.png)
 
 - There are different libraries for many languages for interacting with protocol AMQP and MQTT you can use what you want. We use:
   - [AMQP 0-9-1](https://github.com/squaremo/amqp.node) for Javascript AMQP.
@@ -232,28 +241,36 @@ We used a general purpose [MQTT client](https://play.google.com/store/apps/detai
 ---
 
 
-# Docker TIPS
+# Docker useful commands ![h:100](https://avatars0.githubusercontent.com/u/5429470?s=200&v=4)
 
-In this section are presentented several Docker useful commands:
-- Docker container ID: ```sudo docker ps -a```, displays all deployed containers, rember that functions are Docker containers, the IMAGE field is the function name and version, while the CONTAINER ID is the ID of the function. In this view is also possible to see the listening port for the function in the field PORTS.
-- Docker Logs: ```sudo docker logs CONTAINER ID```, displays the STDOUT and STDERR of the associated container.
-- Docker Kill: ```sudo docker kill CONTAINER ID```, kills the associated container.
-- Docker Remove: ```sudo docker rm CONTAINER ID```, removes the associated container.
+- **Docker container ID**: ```sudo docker ps -a```
+    - displays all deployed containers, rember that functions are Docker containers, the IMAGE field is the function name and version, while the CONTAINER ID is the ID of the function. In this view is also possible to see the listening port for the function in the field PORTS.
+- **Docker Logs**: ```sudo docker logs CONTAINER ID```  
+    - displays the STDOUT and STDERR of the associated container.
+- **Docker Kill**: ```sudo docker kill CONTAINER ID```
+    - kills the associated container.
+- **Docker Remove**: ```sudo docker rm CONTAINER ID```
+    - removes the associated container.
 
 ---
 
+
+
+# MQTT Temperature Example <!--fit-->
 <!-- 
 _class: invert 
 _paginate: false
 -->
+![h:500](https://cdn1.iconfinder.com/data/icons/internet-of-things-multicilor/512/Internet_of_things-ps_style-19-512.png) 
 
-# MQTT Temperature Example <!--fit-->
+---
+
+# Application Goals ![h:100](https://cdn1.iconfinder.com/data/icons/business-456/500/target-512.png) 
 
 
-<br>
+The temperature example aims to demonstrate the potential of the suggested architecture to collect data from IoT sensors and logging this data on an external data manager.
 
-![h:150][topo]
-
+- here
 
 ---
 
@@ -263,11 +280,6 @@ _paginate: false
 
 ![h:450 center][nuclioproject]
 
----
-
-# MQTT Temperature Example
-
-The temperature example aims to demonstrate the potential of the suggested architecture to collect data from IoT sensors and logging this data on an external data manager.
 
 ---
 
@@ -275,10 +287,27 @@ The temperature example aims to demonstrate the potential of the suggested archi
 
 The application is composed by four functions:
 
-* **[Consume Temperature Function](#consume-temperature-function)**, is triggered by a new MQTT message on the topic "iot/sensors/temperature".
-* **[Send Random Temperature Function](#send-random-temperature-function)**, sends a new temperature value on the MQTT on the topic "iot/sensors/temperature".
-* **[Logger](#logger)**, logs the invocation of the consume function, this functions is in waiting for a new messages on the queue AMQP "iot/logs". Is a JavaScript function for Node.js and is executed on an external machine. 
-* **[IoT Client](#iot-client)**, a general purpose Android MQTT Client.
+* **[ Temperature Consume Function](#consume-temperature-function)** triggered by a new MQTT message on the topic "iot/sensors/temperature".
+* **[Send Random Temperature Function](#send-random-temperature-function)** sends a new temperature value on the MQTT on the topic "iot/sensors/temperature".
+* **[Logger](#logger)** logs the invocation of the consume function, this functions is in waiting for a new messages on the queue AMQP "iot/logs". Is a JavaScript function for Node.js and is executed on an external machine. 
+* **[IoT Client](#iot-client)** a general purpose Android MQTT Client.
+
+---
+
+# MQTT Temperature Example
+
+image here
+
+---
+
+# MQTT Temperature Example <!--fit-->
+<!-- 
+_class: invert 
+_paginate: false
+-->
+
+### Temperature  Consume Function
+![h:500](https://media0.giphy.com/media/d2ItDZZumUI6Y/200.gif) 
 
 ---
 
@@ -332,12 +361,17 @@ var amqp = require('amqplib');
 
 # Temperature Consume Function
 
-- The function is deployed using the Docker compose specifics for Nuclio. 
-- This is achieved by define a new .yaml file that declares all functions specifications and source code. 
-- The source code of the function (the JavaScript code) is encoded in base64 and copied in the attribute "functionSourceCode".
-- A new trigger on the mqtt protocol that allows to automatically invoke the function when a new message is coming on the topic "iot/sensors/temperature".
--  Since the functions exploits the amqplib in the "commands" attribute is added the command to install on Node.js the amqplib (npm install amqplib).
-
+- We deploy using the Nuclio' Docker compose specifics: 
+    - _.yaml_ file that declares all functions specifications and source code. 
+    - function code (_JavaScript_) is encoded in base64 and copied in the attribute "functionSourceCode".
+    - triggered with MQTT events on topic ```iot/sensors/temperature```.
+- We use the _amqplib_ to send feedback to a log server:
+     - "commands" attribute ➡️ ```npm install amqplib```.
+- ⚠️ Change the user, password and IP for the log server and for the MQTT trigger (yaml file ```url``` field):
+```
+...
+amqp.connect('amqp://guest:guest@172.16.15.52:5672').then(function(conn) ...
+```
 ---
 
 # Temperature Consume Function
@@ -350,7 +384,7 @@ metadata:
   namespace: nuclio
 spec:
   handler: "main:handler"
-  description: "Function the is called when a new message is arrived on the iot/sensors/temperature queue, //the function send back a feedback on the iot/logs queue."
+  description: "Function the is ..."
   runtime: nodejs
   image: "nuclio/processor-mqttconsume:latest"
   minReplicas: 1
@@ -373,15 +407,30 @@ spec:
 ```
 
 ---
-# Temperature Consume Function deploy
+# Temperature Consume Function 
 
-- For deploying the function you can access, from the Nuclio dashboard, to the project IOT-MQTT and create new function. 
-- When the system ask to create new function you have to select the import form yaml, and load the file "iot/mqtt/temperature/amqpconsume.yaml". At this point the dashboard show you the function IDE where it is needed to deploy on the system the function pressing the button "Deploy".
+- From Nuclio dashboard create new project ``` IOT-MQTT```.
+- Create a new function ```Consume```
+    - select import form yaml, and load the file ```iot/mqtt/temperature/amqpconsume.yaml```;
+    - press **Deploy** (see the Error log).
 
-- The same procedure could be achieved but create new function and copy the JavaScript code in the edidor part, and create the new trigger for the MQTT messages.
+- You can build your function manually by pasting the code, setting the MQTT trigger and adding the _amqplib_ in the install commands:
+    - ⚠️ MQTT trigger must be  ➡️ ```user:passowrd@IP:1883```; 
+    - don't fill the user and passsowrd text field. 
 
 ---
 
+
+# MQTT Temperature Example <!--fit-->
+<!-- 
+_class: invert 
+_paginate: false
+-->
+
+### Send Random Temperature Function
+![h:500](https://i.gifer.com/4n4S.gif) 
+
+---
 # Send Random Temperature Function
 <!---
 The Send Random Temperature Function is written in pure JavaScript and exploits the _MQTT.js_ JavaScript library to communicate on the topic "iot/sensors/temperature".
@@ -402,6 +451,12 @@ var options = {
 };
 ...
 ```
+
+- ⚠️ Change the user, password and IP for the ```mqtt_url``` variable:
+```
+var mqtt_url = url.parse(process.env.CLOUDAMQP_MQTT_URL || 'mqtt://guest:guest@172.16.15.52:1883');
+```
+
 ---
 # Send Random Temperature Function
 ```javascript
@@ -450,48 +505,57 @@ spec:
 
 # Send Random Temperature Function deploy
 
-- For deploying the function you can access, from the Nuclio dashboard, to the project IOT-MQTT and create new function. 
-- When the system ask to create new function you have to select the import form yaml, and load the file "iot/temperature/amqpevent.yaml". 
-- At this point the dashboard show you the function IDE where it is needed to deploy on the system the function pressing the button "Deploy".
 
-- The same procedure could be achieved but create new function and copy the JavaScript code in the edidor part.
+- Create a new function ```Produce```
+    - select import form yaml, and load the file ```iot/mqtt/temperature/amqpevent.yaml```;
+    - press **Deploy** (see the Error log).
+
+- You can build your function manually by pasting the code, setting the MQTT trigger and adding the _amqplib_ in the install commands.
 
 ---
+
 # Invoke Send Random Temperature Function
 
 
-- For invoking the function is possible to press the button "TEST" in the dashboard. 
+- For invoking the function is possible to press the button ```TEST``` in the dashboard. 
 
-- Moreover, in Nuclio is possible to invoke function by generating an HTTP event, the following command invoke the function:
+- Or invoke function by generating an _**HTTP event**_ using the command line tool **curl**
 
 ```sh
 curl -X POST -H "Content-Type: application/text"  http://localhost:39823
 ```
 
-**Note**: Each function in Nuclio is identified by the serving port, you can see the serving port in the dashboard (change the port in the url http://localhost:PORT).
+**Notice**: each Nuclio' function is identified by the serving port, you can see the serving port in the dashboard (change the port in the url http://localhost:PORT).
 
 ---
 
-# Logger
+# MQTT Temperature Example <!--fit-->
+<!-- 
+_class: invert 
+_paginate: false
+-->
+
+### Logger Server
+![h:500](https://i.gifer.com/5SOi.gif) 
+
+---
+
+# Logger Server
 <!---
 The logger function is written in pure JavaScript and exploits the _amqplib_ JavaScript library to receive messages on the queue "iot/logs". 
 -->
 
 ```javascript
 var amqp = require('amqplib');
-
 amqp.connect('amqp://guest:guest@172.16.15.52:5672').then(function(conn) {
   process.once('SIGINT', function() { conn.close(); });
   return conn.createChannel().then(function(ch) {
-
     var ok = ch.assertQueue('iot/logs', {durable: false});
-
     ok = ok.then(function(_qok) {
       return ch.consume('iot/logs', function(msg) {
         console.log(" [x] Received '%s'", msg.content.toString());
       }, {noAck: true});
     });
-
     return ok.then(function(_consumeOk) {
       console.log(' [*] Waiting for messages. To exit press CTRL+C');
     });
@@ -499,11 +563,17 @@ amqp.connect('amqp://guest:guest@172.16.15.52:5672').then(function(conn) {
 }).catch(console.warn);
 ```
 
+- ⚠️ Change the user, password and IP for the ```mqtt_url``` variable:
+```
+...
+amqp.connect('amqp://guest:guest@172.16.15.52:5672').then..
+```
+
 ---
 
 # Execute the Logger
 
-In order to execute this function is require Node.js and the amqlib library. The following commands execute the logger:
+Running the server using the Node.js runtime.
 
 ```sh
 $ npm install amqplib
@@ -512,10 +582,19 @@ $ node logger.js
 
 ---
 
-# IoT Client
+# Android IoT Client (1)
 
-- For this example we have used a general purpose  [MQTT Android Client](https://play.google.com/store/apps/details?id=in.dc297.mqttclpro). 
+-A general purpose  [MQTT Android Client](https://play.google.com/store/apps/details?id=in.dc297.mqttclpro). 
 - In this app you can connect to the RabbitMQ broker using the protocol MQTT (just create new connection to the IP where the RabbitMQ are running). 
 - After created the connection you can easily send values on some topic.
 
 ![width:200px][android]
+
+---
+
+# Android IoT Client (2)
+
+- A general purpose  [MQTT Android Client](https://play.google.com/store/apps/details?id=com.sanyamarya.mqtizermqtt_client). 
+- here
+
+![width:200px](https://lh3.googleusercontent.com/VrPa7960DrNbQuiLLbcLjmMDtT-JPbHY13Fx1q0t-6U3rKrF5WGFzdlgDNrccYCb948=w720-h310-rw)
