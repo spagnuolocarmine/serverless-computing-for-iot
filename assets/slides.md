@@ -2,7 +2,6 @@
 marp: true
 size: 4k
 paginate: true
-
 ---
 
 <style>
@@ -18,7 +17,26 @@ img[alt~="center"] {
 [nuclioproject]: https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/nuclio_project.png
 [serverless]: https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/serverless.png
 [faas]: https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/faas.png
-[iot]: /home/matdau/git/serverless-computing-for-iot/assets/iot.png
+[iot]: https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/iot.png
+[tempapp]: https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/temp_app.png
+[function0]: https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/function0.png
+[function1]: https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/function1.png
+[function2]: https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/function2.png
+[configuration]: https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/configuration.png
+[trigger]: https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/trigger.png
+[yaml1]: https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/yaml_1.png
+[yaml2]: https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/yaml_2.png
+[mqtt1]: https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/mqqt1.jpg
+[mqtt2]: https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/mqtt2.jpg
+[mqtt3]: https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/mqtt3.jpg
+[mqtt4]: https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/mqtt4.jpg
+[mqtt5]: https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/mqtt5.jpg
+[mqtzer1]: https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/mqtizer1.jpg
+[mqtzer2]: https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/mqtizer2.jpg
+[mqtzer3]: https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/mqtizer3.jpg
+[mqtzer4]: https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/mqtizer4.jpg
+[mqtzer5]: https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/mqtizer5.jpg
+[mqtzer6]: https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/mqtzer6.jpg
 
 <!-- 
 _class: invert 
@@ -80,19 +98,19 @@ _ISISLab - Università degli Studi di Salerno_
 
 # The Internet of Thing (IoT)
 
-- A network of physical devices, vehicles, home appliances, and other items embedded with electronics, software, sensors, actuators, and connectivity which enables these things to connect, collect and exchange data.
+- A network of physical devices, vehicles, home appliances, and other items embedded with electronics, software, sensors, actuators, and connectivity, which enables these things to connect, collect, and exchange data.
 
 - **Course goal**:  
-  - efficiently collect and elaborate data, produce new data as answer to particular condition computed from the data received. 
-  - integrate different cloud services to build an IoT application by using only open-source software. 
+  - efficiently collect and elaborate data, produce new data as the answer to particular conditions computed from the data received. 
+  - integrate different cloud services to build an IoT application by using only open-source software.  
 ![bg right:20%][iot]
 
 ---
 
 # Lesson Objectives
 
-- _**Design**_ a computing architecture, based on open-source software, that allows the users to exploit Function-as-service model in the context of IoT.
-- The system must allows to _**deploy**_ functions that are _**trigged**_ by events generated from small devices such as sensors and  mobile (IoT devices)
+- _**Design**_ a computing architecture, based on open-source software, that allows the users to exploit the Function-as-service model in the context of IoT.
+- The system must allow to _**deploy**_ functions that are _**trigged**_ by events generated from small devices such as sensors and  mobile (IoT devices)
 -  Use the _**message-passing**_ communication paradigm, in particular on dedicated protocols as AMQP or MQTT.  
 
 
@@ -186,7 +204,7 @@ $ sudo chmod +x /usr/local/bin/docker-compose
 
 # Nuclio ![h:100](https://github.com/nuclio/nuclio/raw/development/docs/assets/images/logo.png)
 
-- Is a new "serverless" project, derived from Iguazio's elastic data life-cycle management service for high-performance events and data processing. 
+- Nuclio is a new "serverless" project, derived from Iguazio's elastic data life-cycle management service for high-performance events and data processing. 
 - The simplest way to explore Nuclio is to run its graphical user interface (GUI) of the Nuclio dashboard. 
 
 - The Nuclio documentation is available at [this link](https://nuclio.io/docs/latest/).
@@ -212,7 +230,55 @@ docker.sock -v /tmp:/tmp nuclio/dashboard:stable-amd64
 
 **How to deploy functions in Nuclio using the Nuclio dashboard:**
 
-- here
+![][function0]
+
+---
+
+# Nuclio ![h:100](https://github.com/nuclio/nuclio/raw/development/docs/assets/images/logo.png)
+
+**How to deploy functions in Nuclio using the Nuclio dashboard:**
+
+![h:400 center][function1]
+
+---
+
+# Nuclio ![h:100](https://github.com/nuclio/nuclio/raw/development/docs/assets/images/logo.png)
+
+**How to deploy functions in Nuclio using the Nuclio dashboard:**
+
+![h:400 w:800 center][function2]
+
+---
+
+# Nuclio ![h:100](https://github.com/nuclio/nuclio/raw/development/docs/assets/images/logo.png)
+
+**How to deploy functions in Nuclio using the Nuclio dashboard:**
+
+![h:400 w:800 center][configuration]
+
+---
+
+# Nuclio ![h:100](https://github.com/nuclio/nuclio/raw/development/docs/assets/images/logo.png)
+
+**How to deploy functions in Nuclio using the Nuclio dashboard:**
+
+![h:400 w:800 center][trigger]
+
+---
+
+# Nuclio ![h:100](https://github.com/nuclio/nuclio/raw/development/docs/assets/images/logo.png)
+
+**How to deploy functions in Nuclio using the Nuclio dashboard and .yaml file:**
+
+![h:400 w:800 center][yaml1]
+
+---
+
+# Nuclio ![h:100](https://github.com/nuclio/nuclio/raw/development/docs/assets/images/logo.png)
+
+**How to deploy functions in Nuclio using the Nuclio dashboard and .yaml file:**
+
+![h:400 w:800 center][yaml2]
 
 ---
 
@@ -244,7 +310,7 @@ We used a general purpose [MQTT client](https://play.google.com/store/apps/detai
 # Docker useful commands ![h:100](https://avatars0.githubusercontent.com/u/5429470?s=200&v=4)
 
 - **Docker container ID**: ```sudo docker ps -a```
-    - displays all deployed containers, rember that functions are Docker containers, the IMAGE field is the function name and version, while the CONTAINER ID is the ID of the function. In this view is also possible to see the listening port for the function in the field PORTS.
+    - displays all deployed containers, remember that functions are Docker containers, the IMAGE field is the function name and version, while the CONTAINER ID is the ID of the function. In this view, it is also possible to see the listening port for the function in the field PORTS.
 - **Docker Logs**: ```sudo docker logs CONTAINER ID```  
     - displays the STDOUT and STDERR of the associated container.
 - **Docker Kill**: ```sudo docker kill CONTAINER ID```
@@ -270,7 +336,10 @@ _paginate: false
 
 The temperature example aims to demonstrate the potential of the suggested architecture to collect data from IoT sensors and logging this data on an external data manager.
 
-- here
+Scenario:
+- We have several sensors that detect the temperature. 
+- These sensors send these temperatures through the use of the MQTT protocol.
+- These temperatures are processed in a Serverless way.
 
 ---
 
@@ -289,14 +358,14 @@ The application is composed by four functions:
 
 * **[ Temperature Consume Function](#consume-temperature-function)** triggered by a new MQTT message on the topic "iot/sensors/temperature".
 * **[Send Random Temperature Function](#send-random-temperature-function)** sends a new temperature value on the MQTT on the topic "iot/sensors/temperature".
-* **[Logger](#logger)** logs the invocation of the consume function, this functions is in waiting for a new messages on the queue AMQP "iot/logs". Is a JavaScript function for Node.js and is executed on an external machine. 
+* **[Logger](#logger)** logs the invocation of the consume function, this function is in waiting for new messages on the queue AMQP "iot/logs". It is a JavaScript function for Node.js and is executed on an external machine. 
 * **[IoT Client](#iot-client)** a general purpose Android MQTT Client.
 
 ---
 
 # MQTT Temperature Example
 
-image here
+![][tempapp]
 
 ---
 
@@ -361,7 +430,7 @@ var amqp = require('amqplib');
 
 # Temperature Consume Function
 
-- We deploy using the Nuclio' Docker compose specifics: 
+- We deploy using the Nuclio's Docker compose specifics: 
     - _.yaml_ file that declares all functions specifications and source code. 
     - function code (_JavaScript_) is encoded in base64 and copied in the attribute "functionSourceCode".
     - triggered with MQTT events on topic ```iot/sensors/temperature```.
@@ -409,14 +478,14 @@ spec:
 ---
 # Temperature Consume Function 
 
-- From Nuclio dashboard create new project ``` IOT-MQTT```.
+- From Nuclio dashboard create a new project ``` IOT-MQTT```.
 - Create a new function ```Consume```
-    - select import form yaml, and load the file ```iot/mqtt/temperature/amqpconsume.yaml```;
+    - select import from yaml, and load the file ```iot/mqtt/temperature/amqpconsume.yaml```;
     - press **Deploy** (see the Error log).
 
-- You can build your function manually by pasting the code, setting the MQTT trigger and adding the _amqplib_ in the install commands:
+- You can build your function manually by pasting the code, setting the MQTT trigger, and adding the _amqplib_ in the install commands:
     - ⚠️ MQTT trigger must be  ➡️ ```user:passowrd@IP:1883```; 
-    - don't fill the user and passsowrd text field. 
+    - don't fill the user and password text field. 
 
 ---
 
@@ -507,7 +576,7 @@ spec:
 
 
 - Create a new function ```Produce```
-    - select import form yaml, and load the file ```iot/mqtt/temperature/amqpevent.yaml```;
+    - select import from yaml, and load the file ```iot/mqtt/temperature/amqpevent.yaml```;
     - press **Deploy** (see the Error log).
 
 - You can build your function manually by pasting the code, setting the MQTT trigger and adding the _amqplib_ in the install commands.
@@ -519,7 +588,7 @@ spec:
 
 - For invoking the function is possible to press the button ```TEST``` in the dashboard. 
 
-- Or invoke function by generating an _**HTTP event**_ using the command line tool **curl**
+- Or invoke the function by generating an _**HTTP event**_ using the command line tool **curl**
 
 ```sh
 curl -X POST -H "Content-Type: application/text"  http://localhost:39823
@@ -584,17 +653,41 @@ $ node logger.js
 
 # Android IoT Client (1)
 
--A general purpose  [MQTT Android Client](https://play.google.com/store/apps/details?id=in.dc297.mqttclpro). 
-- In this app you can connect to the RabbitMQ broker using the protocol MQTT (just create new connection to the IP where the RabbitMQ are running). 
-- After created the connection you can easily send values on some topic.
-
-![width:200px][android]
+- [MQTT Client](https://play.google.com/store/apps/details?id=in.dc297.mqttclpro). 
+- In this app, you can connect to the RabbitMQ broker using the protocol MQTT (create a new connection to the IP where the RabbitMQ is running). 
+- After creating the connection, you can easily send or receive values on some topics.
 
 ---
 
-# Android IoT Client (2)
+# Android IoT Client (1) - Connection 
 
-- A general purpose  [MQTT Android Client](https://play.google.com/store/apps/details?id=com.sanyamarya.mqtizermqtt_client). 
-- here
+ ![width:175px][mqtt1]  ![width:175px][mqtt2] 
 
-![width:200px](https://lh3.googleusercontent.com/VrPa7960DrNbQuiLLbcLjmMDtT-JPbHY13Fx1q0t-6U3rKrF5WGFzdlgDNrccYCb948=w720-h310-rw)
+
+---
+
+# Android IoT Client (1) - Subscribe and send/receive message
+ ![width:175px][mqtt3]  ![width:175px][mqtt4]  ![width:175px][mqtt5] 
+
+
+---
+
+# Android IoT Client (2) 🌟
+
+- [MQTIZER - Free MQTT Client](https://play.google.com/store/apps/details?id=com.sanyamarya.mqtizermqtt_client). 
+- In this app, you can connect to the RabbitMQ broker using the protocol MQTT (create a new connection to the IP where the RabbitMQ is running). 
+- After creating the connection, you can easily send or receive values on some topics.
+
+---
+
+# Android IoT Client (2) 🌟 - Connection
+
+![width:175px][mqtzer1]  ![width:175px][mqtzer2] 
+
+---
+
+# Android IoT Client (2) 🌟 - Subscription and send/receive message
+
+<!--- here I was wrong to rename the files when I uploaded them ... but I put them in order in the slide -->
+
+![width:175px][mqtzer5]  ![width:175px][mqtzer3] ![width:175px][mqtzer4]  ![width:175px][mqtzer5] 
