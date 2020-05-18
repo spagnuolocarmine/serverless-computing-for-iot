@@ -9,6 +9,15 @@ img[alt~="center"] {
   display: block;
   margin: 0 auto;
 }
+
+img[alt~="rel"]{
+  display: inline-block;
+  position:relative;
+  padding: 20px;
+  margin-top: 20px;
+  vertical-align:middle;
+}
+
 </style>
 
 [topo]: https://raw.githubusercontent.com/spagnuolocarmine/spagnuolocarmine.github.io/master/assets/files/myworkingspace/img/topo.png
@@ -68,7 +77,7 @@ _ISISLab - Università degli Studi di Salerno_
 
 - We talk (asynchronously) on the 
   - Discord ISISLab community [![h:50](https://img.shields.io/discord/693092516286693387.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/BTt5fUp)
-  - channel CLASSES ```#serverless``` 
+  - channel CLASSES ```#sciot``` 
 - or you can schedule an online meeting (synchronously) during the official course hours (on the same platform). 
 - please mention us ```@Carmine Spagnuolo#6098  and @Matteo D'Auria#1998```. 
 
@@ -662,13 +671,13 @@ $ node logger.js
 
 # Android IoT Client (1) - Connection 
 
- ![width:175px][mqtt1]  ![width:175px][mqtt2] 
+ ![width:175px rel][mqtt1]  ![width:175px rel][mqtt2] 
 
 
 ---
 
 # Android IoT Client (1) - Subscribe and send/receive message
- ![width:175px][mqtt3]  ![width:175px][mqtt4]  ![width:175px][mqtt5] 
+ ![width:175px rel ][mqtt3]  ![width:175px rel][mqtt4]  ![width:175px rel][mqtt5] 
 
 
 ---
@@ -681,9 +690,9 @@ $ node logger.js
 
 ---
 
-# Android IoT Client (2) 🌟 - Connection
+# Android IoT Client (2) 🌟 - Connection 
 
-![width:175px][mqtzer1]  ![width:175px][mqtzer2] 
+![width:175px rel][mqtzer1] ![width:175px rel][mqtzer2] 
 
 ---
 
@@ -691,4 +700,4 @@ $ node logger.js
 
 <!--- here I was wrong to rename the files when I uploaded them ... but I put them in order in the slide -->
 
-![width:175px][mqtzer5]  ![width:175px][mqtzer3] ![width:175px][mqtzer4]  ![width:175px][mqtzer5] 
+![width:175px rel][mqtzer5]  ![width:175px rel ][mqtzer3] ![width:175px rel][mqtzer4]  ![width:175px rel][mqtzer5] 
