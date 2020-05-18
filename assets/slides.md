@@ -69,9 +69,10 @@ _ISISLab - Università degli Studi di Salerno_
 - We talk (asynchronously) on the 
   - Discord ISISLab community [![h:50](https://img.shields.io/discord/693092516286693387.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/BTt5fUp)
   - channel CLASSES ```#serverless``` 
-- or you can schedule an online meeting (synchronously) during the official course hours (on the same platform).
+- or you can schedule an online meeting (synchronously) during the official course hours (on the same platform). 
+- please mention us ```@Carmine Spagnuolo#6098  and @Matteo D'Auria#1998```. 
 
-[![ h:50](https://img.shields.io/badge/GitHub-serverless--computing--for--iot-blue)](https://github.com/spagnuolocarmine/serverless-computing-for-iot)
+[![ h:30](https://img.shields.io/badge/GitHub-serverless--computing--for--iot-blue)](https://github.com/spagnuolocarmine/serverless-computing-for-iot) [![h:30](https://img.shields.io/badge/HTML-Live%20Preview-red)](https://github.com/spagnuolocarmine/serverless-computing-for-iot/raw/master/assets/slides.html)
 
 ---
 
