@@ -1,0 +1,608 @@
+<!DOCTYPE html><html lang="it-IT"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta property="og:type" content="website"><meta name="twitter:card" content="summary"><style>.bespoke-marp-note,.bespoke-marp-osc,.bespoke-progress-parent{display:none;transition:none}@media screen{body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button,body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button,body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container button{-webkit-appearance:none;-moz-appearance:none;appearance:none;background-color:transparent;border:0;color:inherit;cursor:pointer;font-size:inherit;opacity:.8;outline:none;padding:0;transition:opacity .2s linear;-webkit-tap-highlight-color:transparent}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button:disabled,body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button:disabled,body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container button:disabled{cursor:not-allowed;opacity:.15!important}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button:hover,body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button:hover,body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container button:hover{opacity:1}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button:hover:active,body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button:hover:active,body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container button:hover:active{opacity:.6}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button:hover:not(:disabled),body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button:hover:not(:disabled),body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container button:hover:not(:disabled){transition:none}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=prev],body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=prev],body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container button.bespoke-marp-presenter-info-page-prev{background:transparent url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSI1IiBkPSJNNjggOTBMMjggNTBsNDAtNDAiLz48L3N2Zz4=") no-repeat 50%;background-size:contain;overflow:hidden;text-indent:100%;white-space:nowrap}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=next],body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=next],body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container button.bespoke-marp-presenter-info-page-next{background:transparent url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSI1IiBkPSJNMzIgOTBsNDAtNDAtNDAtNDAiLz48L3N2Zz4=") no-repeat 50%;background-size:contain;overflow:hidden;text-indent:100%;white-space:nowrap}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=fullscreen],body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=fullscreen]{background:transparent url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48ZGVmcz48c3R5bGU+LmF7ZmlsbDpub25lO3N0cm9rZTojZmZmO3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2Utd2lkdGg6NXB4fTwvc3R5bGU+PC9kZWZzPjxyZWN0IGNsYXNzPSJhIiB4PSIxMCIgeT0iMjAiIHdpZHRoPSI4MCIgaGVpZ2h0PSI2MCIgcng9IjUuNjciLz48cGF0aCBjbGFzcz0iYSIgZD0iTTQwIDcwSDIwVjUwbTIwIDBMMjAgNzBtNDAtNDBoMjB2MjBtLTIwIDBsMjAtMjAiLz48L3N2Zz4=") no-repeat 50%;background-size:contain;overflow:hidden;text-indent:100%;white-space:nowrap}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button.exit[data-bespoke-marp-osc=fullscreen],body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button.exit[data-bespoke-marp-osc=fullscreen]{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48ZGVmcz48c3R5bGU+LmF7ZmlsbDpub25lO3N0cm9rZTojZmZmO3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2Utd2lkdGg6NXB4fTwvc3R5bGU+PC9kZWZzPjxyZWN0IGNsYXNzPSJhIiB4PSIxMCIgeT0iMjAiIHdpZHRoPSI4MCIgaGVpZ2h0PSI2MCIgcng9IjUuNjciLz48cGF0aCBjbGFzcz0iYSIgZD0iTTIwIDUwaDIwdjIwbS0yMCAwbDIwLTIwbTQwIDBINjBWMzBtMjAgMEw2MCA1MCIvPjwvc3ZnPg==")}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=presenter],body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=presenter]{background:transparent url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48ZGVmcz48c3R5bGU+LmF7ZmlsbDpub25lO3N0cm9rZTojZmZmO3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS13aWR0aDo1cHh9PC9zdHlsZT48L2RlZnM+PHBhdGggY2xhc3M9ImEiIGQ9Ik0yMCA2MGgtNWE1IDUgMCAwMS01LTVWMjBhNSA1IDAgMDE1LTVoNjBhNSA1IDAgMDE1IDV2NU0zMCA4NWg2MCIvPjxyZWN0IHg9IjMwIiB5PSIzNSIgd2lkdGg9IjYwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIi8+PHJlY3QgY2xhc3M9ImEiIHg9IjMwIiB5PSIzNSIgd2lkdGg9IjYwIiBoZWlnaHQ9IjQwIiByeD0iNSIvPjxwYXRoIGNsYXNzPSJhIiBkPSJNNDAgNTBoNDBNNDAgNjBoMzAiLz48L3N2Zz4=") no-repeat 50%;background-size:contain;overflow:hidden;text-indent:100%;white-space:nowrap}body,html{height:100%;margin:0}body{background:#000;overflow:hidden}svg.bespoke-marp-slide{opacity:0;pointer-events:none;z-index:-1}svg.bespoke-marp-slide.bespoke-marp-active{opacity:1;pointer-events:auto;z-index:0}svg.bespoke-marp-slide[data-bespoke-marp-load=hideable]{display:none}svg.bespoke-marp-slide[data-bespoke-marp-load=hideable].bespoke-marp-active{display:block}[data-bespoke-marp-fragment=inactive]{visibility:hidden}body[data-bespoke-view=""] .bespoke-marp-parent,body[data-bespoke-view=next] .bespoke-marp-parent{bottom:0;left:0;position:absolute;right:0;top:0}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc,body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc{background:rgba(0,0,0,.65);border-radius:7px;bottom:50px;color:#fff;display:block;font-family:Helvetica,Arial,sans-serif;font-size:16px;left:50%;line-height:0;opacity:1;padding:12px;position:absolute;touch-action:manipulation;transform:translateX(-50%);transition:opacity .2s linear;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;white-space:nowrap;z-index:1;will-change:transform}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>*,body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>*{margin-left:6px}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>:first-child,body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>:first-child{margin-left:0}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>span,body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>span{opacity:.8}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>span[data-bespoke-marp-osc=page],body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>span[data-bespoke-marp-osc=page]{display:inline-block;min-width:140px;text-align:center}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=fullscreen],body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=next],body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=presenter],body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=prev],body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=fullscreen],body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=next],body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=presenter],body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=prev]{height:32px;line-height:32px;width:32px}body[data-bespoke-view=""] .bespoke-marp-parent.bespoke-marp-inactive,body[data-bespoke-view=next] .bespoke-marp-parent.bespoke-marp-inactive{cursor:none}body[data-bespoke-view=""] .bespoke-marp-parent.bespoke-marp-inactive>.bespoke-marp-osc,body[data-bespoke-view=next] .bespoke-marp-parent.bespoke-marp-inactive>.bespoke-marp-osc{opacity:0;pointer-events:none}body[data-bespoke-view=""] svg.bespoke-marp-slide,body[data-bespoke-view=next] svg.bespoke-marp-slide{height:100%;left:0;position:absolute;top:0;width:100%}body[data-bespoke-view=""] .bespoke-progress-parent{background:#222;display:flex;height:5px;width:100%}body[data-bespoke-view=""] .bespoke-progress-parent+.bespoke-marp-parent{top:5px}body[data-bespoke-view=""] .bespoke-progress-parent .bespoke-progress-bar{flex:0 0 0;background:#0288d1;transition:flex-basis .2s cubic-bezier(0,1,1,1)}body[data-bespoke-view=next]{background:transparent}body[data-bespoke-view=presenter]{background:#161616}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container{height:100%;left:0;position:absolute;top:0;width:100%;display:grid;grid-template-columns:2fr 1fr;grid-template-rows:minmax(140px,1fr) 2fr 3em;grid-template-areas:"current next" "current note" "info    note"}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-parent{grid-area:current;position:relative;overflow:hidden}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-parent svg.bespoke-marp-slide{height:calc(100% - 40px);left:20px;position:absolute;pointer-events:none;top:20px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;width:calc(100% - 40px)}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-parent svg.bespoke-marp-slide.bespoke-marp-active{-webkit-filter:drop-shadow(0 3px 10px rgba(0,0,0,.5));filter:drop-shadow(0 3px 10px rgba(0,0,0,.5))}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-next-container{background:#222;cursor:pointer;display:none;grid-area:next;overflow:hidden;position:relative}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-next-container.active{display:block}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-next-container iframe.bespoke-marp-presenter-next{background:transparent;border:0;display:block;-webkit-filter:drop-shadow(0 3px 10px rgba(0,0,0,.5));filter:drop-shadow(0 3px 10px rgba(0,0,0,.5));height:calc(100% - 40px);left:20px;position:absolute;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;top:20px;width:calc(100% - 40px)}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container{background:#222;color:#ddd;grid-area:note}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container .bespoke-marp-note{margin:20px;width:calc(100% - 40px);height:calc(100% - 40px);box-sizing:border-box;overflow:auto;padding-right:3px;white-space:pre-wrap;word-wrap:break-word;scrollbar-width:thin;scrollbar-color:hsla(0,0%,86.7%,.5) transparent}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container .bespoke-marp-note::-webkit-scrollbar{width:6px}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container .bespoke-marp-note::-webkit-scrollbar-track{background:transparent}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container .bespoke-marp-note::-webkit-scrollbar-thumb{background:hsla(0,0%,86.7%,.5);border-radius:6px}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container .bespoke-marp-note:empty{pointer-events:none}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container .bespoke-marp-note.active{display:block}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container .bespoke-marp-note p:first-child{margin-top:0}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container .bespoke-marp-note p:last-child{margin-bottom:0}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container{align-items:center;box-sizing:border-box;color:#ddd;display:flex;flex-wrap:nowrap;grid-area:info;justify-content:center;padding:0 10px}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container .bespoke-marp-presenter-info-page,body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container .bespoke-marp-presenter-info-time,body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container .bespoke-marp-presenter-info-timer{display:block;box-sizing:border-box;padding:0 10px;white-space:nowrap;width:100%}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container button{height:1.5em;line-height:1.5em;width:1.5em}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container .bespoke-marp-presenter-info-page{order:2;text-align:center}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container .bespoke-marp-presenter-info-page .bespoke-marp-presenter-info-page-text{display:inline-block;min-width:120px;text-align:center}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container .bespoke-marp-presenter-info-time{color:#999;order:1;text-align:left}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container .bespoke-marp-presenter-info-timer{color:#999;order:3;text-align:right}}@media print{.bespoke-marp-presenter-info-container,.bespoke-marp-presenter-next-container,.bespoke-marp-presenter-note-container{display:none}}</style><style>div#p>svg>foreignObject>section{width:1280px;height:720px;box-sizing:border-box;overflow:hidden;position:relative;scroll-snap-align:center center}div#p>svg>foreignObject>section:after{bottom:0;content:attr(data-marpit-pagination);padding:inherit;pointer-events:none;position:absolute;right:0}div#p>svg>foreignObject>section:not([data-marpit-pagination]):after{display:none}/* Normalization */div#p>svg>foreignObject>section h1{font-size:2em;margin:0.67em 0}div#p>svg>foreignObject>section video::-webkit-media-controls{will-change:transform}@page{size:1280px 720px;margin:0}@media print{body,html{background-color:#fff;margin:0;page-break-inside:avoid;break-inside:avoid-page}div#p>svg>foreignObject>section{page-break-before:always;break-before:page}div#p>svg>foreignObject>section,div#p>svg>foreignObject>section *{-webkit-print-color-adjust:exact!important;color-adjust:exact!important}div#p>svg[data-marpit-svg]{display:block;height:100vh;width:100vw}}div#p>svg>foreignObject>section svg[data-marp-fitting=svg]{display:block;height:auto;width:100%}@supports (-ms-ime-align:auto){div#p>svg>foreignObject>section svg[data-marp-fitting=svg]{position:static}}div#p>svg>foreignObject>section svg[data-marp-fitting=svg].__reflow__{content:""}@supports (-ms-ime-align:auto){div#p>svg>foreignObject>section svg[data-marp-fitting=svg].__reflow__{position:relative}}div#p>svg>foreignObject>section [data-marp-fitting-svg-content]{display:table;white-space:nowrap}div#p>svg>foreignObject>section [data-marp-fitting-svg-content-wrap]{white-space:pre}div#p>svg>foreignObject>section img[data-marp-twemoji]{background:transparent;height:1em;margin:0 .05em 0 .1em;vertical-align:-.1em;width:1em}
+/*!
+ * Marp default theme.
+ *
+ * @theme default
+ * @author Yuki Hattori
+ *
+ * @auto-scaling true
+ * @size 4:3 960px 720px
+ */div#p>svg>foreignObject>section .octicon{display:inline-block;fill:currentColor;vertical-align:text-bottom}div#p>svg>foreignObject>section .anchor{float:left;line-height:1;margin-left:-20px;padding-right:4px}div#p>svg>foreignObject>section .anchor:focus{outline:none}div#p>svg>foreignObject>section h1 .octicon-link,div#p>svg>foreignObject>section h2 .octicon-link,div#p>svg>foreignObject>section h3 .octicon-link,div#p>svg>foreignObject>section h4 .octicon-link,div#p>svg>foreignObject>section h5 .octicon-link,div#p>svg>foreignObject>section h6 .octicon-link{color:#1b1f23;vertical-align:middle;visibility:hidden}div#p>svg>foreignObject>section h1:hover .anchor,div#p>svg>foreignObject>section h2:hover .anchor,div#p>svg>foreignObject>section h3:hover .anchor,div#p>svg>foreignObject>section h4:hover .anchor,div#p>svg>foreignObject>section h5:hover .anchor,div#p>svg>foreignObject>section h6:hover .anchor{text-decoration:none}div#p>svg>foreignObject>section h1:hover .anchor .octicon-link,div#p>svg>foreignObject>section h2:hover .anchor .octicon-link,div#p>svg>foreignObject>section h3:hover .anchor .octicon-link,div#p>svg>foreignObject>section h4:hover .anchor .octicon-link,div#p>svg>foreignObject>section h5:hover .anchor .octicon-link,div#p>svg>foreignObject>section h6:hover .anchor .octicon-link{visibility:visible}div#p>svg>foreignObject>section h1:hover .anchor .octicon-link:before,div#p>svg>foreignObject>section h2:hover .anchor .octicon-link:before,div#p>svg>foreignObject>section h3:hover .anchor .octicon-link:before,div#p>svg>foreignObject>section h4:hover .anchor .octicon-link:before,div#p>svg>foreignObject>section h5:hover .anchor .octicon-link:before,div#p>svg>foreignObject>section h6:hover .anchor .octicon-link:before{width:16px;height:16px;content:" ";display:inline-block;background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' aria-hidden='true'%3E%3Cpath fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'/%3E%3C/svg%3E")}div#p>svg>foreignObject>section{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;color:#24292e;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;font-size:16px;line-height:1.5;word-wrap:break-word}div#p>svg>foreignObject>section details{display:block}div#p>svg>foreignObject>section summary{display:list-item}div#p>svg>foreignObject>section a{background-color:initial}div#p>svg>foreignObject>section a:active,div#p>svg>foreignObject>section a:hover{outline-width:0}div#p>svg>foreignObject>section strong{font-weight:inherit;font-weight:bolder}div#p>svg>foreignObject>section h1{margin:.67em 0}div#p>svg>foreignObject>section img{border-style:none}div#p>svg>foreignObject>section code,div#p>svg>foreignObject>section kbd,div#p>svg>foreignObject>section pre{font-family:monospace,monospace;font-size:1em}div#p>svg>foreignObject>section hr{box-sizing:initial;overflow:visible}div#p>svg>foreignObject>section input{font:inherit;margin:0;overflow:visible}div#p>svg>foreignObject>section [type=checkbox]{padding:0}div#p>svg>foreignObject>section *,div#p>svg>foreignObject>section [type=checkbox]{box-sizing:border-box}div#p>svg>foreignObject>section input{font-family:inherit;font-size:inherit;line-height:inherit}div#p>svg>foreignObject>section a{color:#0366d6;text-decoration:none}div#p>svg>foreignObject>section a:hover{text-decoration:underline}div#p>svg>foreignObject>section strong{font-weight:600}div#p>svg>foreignObject>section hr{height:0;margin:15px 0;overflow:hidden;background:transparent;border-bottom:1px solid #dfe2e5}div#p>svg>foreignObject>section hr:after,div#p>svg>foreignObject>section hr:before{display:table;content:""}div#p>svg>foreignObject>section hr:after{clear:both}div#p>svg>foreignObject>section table{border-spacing:0;border-collapse:collapse}div#p>svg>foreignObject>section td,div#p>svg>foreignObject>section th{padding:0}div#p>svg>foreignObject>section details summary{cursor:pointer}div#p>svg>foreignObject>section h1,div#p>svg>foreignObject>section h2,div#p>svg>foreignObject>section h3,div#p>svg>foreignObject>section h4,div#p>svg>foreignObject>section h5,div#p>svg>foreignObject>section h6{margin-top:0;margin-bottom:0}div#p>svg>foreignObject>section h1{font-size:32px}div#p>svg>foreignObject>section h1,div#p>svg>foreignObject>section h2{font-weight:600}div#p>svg>foreignObject>section h2{font-size:24px}div#p>svg>foreignObject>section h3{font-size:20px}div#p>svg>foreignObject>section h3,div#p>svg>foreignObject>section h4{font-weight:600}div#p>svg>foreignObject>section h4{font-size:16px}div#p>svg>foreignObject>section h5{font-size:14px}div#p>svg>foreignObject>section h5,div#p>svg>foreignObject>section h6{font-weight:600}div#p>svg>foreignObject>section h6{font-size:12px}div#p>svg>foreignObject>section p{margin-top:0;margin-bottom:10px}div#p>svg>foreignObject>section blockquote{margin:0}div#p>svg>foreignObject>section ol,div#p>svg>foreignObject>section ul{padding-left:0;margin-top:0;margin-bottom:0}div#p>svg>foreignObject>section ol ol,div#p>svg>foreignObject>section ul ol{list-style-type:lower-roman}div#p>svg>foreignObject>section ol ol ol,div#p>svg>foreignObject>section ol ul ol,div#p>svg>foreignObject>section ul ol ol,div#p>svg>foreignObject>section ul ul ol{list-style-type:lower-alpha}div#p>svg>foreignObject>section dd{margin-left:0}div#p>svg>foreignObject>section code,div#p>svg>foreignObject>section pre{font-family:SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;font-size:12px}div#p>svg>foreignObject>section pre{margin-top:0;margin-bottom:0}div#p>svg>foreignObject>section input::-webkit-inner-spin-button,div#p>svg>foreignObject>section input::-webkit-outer-spin-button{margin:0;-webkit-appearance:none;appearance:none}div#p>svg>foreignObject>section :checked+.radio-label{position:relative;z-index:1;border-color:#0366d6}div#p>svg>foreignObject>section .border{border:1px solid #e1e4e8!important}div#p>svg>foreignObject>section .border-0{border:0!important}div#p>svg>foreignObject>section .border-bottom{border-bottom:1px solid #e1e4e8!important}div#p>svg>foreignObject>section .rounded-1{border-radius:3px!important}div#p>svg>foreignObject>section .bg-white{background-color:#fff!important}div#p>svg>foreignObject>section .bg-gray-light{background-color:#fafbfc!important}div#p>svg>foreignObject>section .text-gray-light{color:#6a737d!important}div#p>svg>foreignObject>section .pl-3,div#p>svg>foreignObject>section .px-3{padding-left:16px!important}div#p>svg>foreignObject>section .px-3{padding-right:16px!important}div#p>svg>foreignObject>section .f6{font-size:12px!important}div#p>svg>foreignObject>section .lh-condensed{line-height:1.25!important}div#p>svg>foreignObject>section .text-bold{font-weight:600!important}div#p>svg>foreignObject>section .pl-c{color:#6a737d}div#p>svg>foreignObject>section .pl-c1,div#p>svg>foreignObject>section .pl-s .pl-v{color:#005cc5}div#p>svg>foreignObject>section .pl-e,div#p>svg>foreignObject>section .pl-en{color:#6f42c1}div#p>svg>foreignObject>section .pl-s .pl-s1,div#p>svg>foreignObject>section .pl-smi{color:#24292e}div#p>svg>foreignObject>section .pl-ent{color:#22863a}div#p>svg>foreignObject>section .pl-k{color:#d73a49}div#p>svg>foreignObject>section .pl-pds,div#p>svg>foreignObject>section .pl-s,div#p>svg>foreignObject>section .pl-s .pl-pse .pl-s1,div#p>svg>foreignObject>section .pl-sr,div#p>svg>foreignObject>section .pl-sr .pl-cce,div#p>svg>foreignObject>section .pl-sr .pl-sra,div#p>svg>foreignObject>section .pl-sr .pl-sre{color:#032f62}div#p>svg>foreignObject>section .pl-smw,div#p>svg>foreignObject>section .pl-v{color:#e36209}div#p>svg>foreignObject>section .pl-bu{color:#b31d28}div#p>svg>foreignObject>section .pl-ii{color:#fafbfc;background-color:#b31d28}div#p>svg>foreignObject>section .pl-c2{color:#fafbfc;background-color:#d73a49}div#p>svg>foreignObject>section .pl-c2:before{content:"^M"}div#p>svg>foreignObject>section .pl-sr .pl-cce{font-weight:700;color:#22863a}div#p>svg>foreignObject>section .pl-ml{color:#735c0f}div#p>svg>foreignObject>section .pl-mh,div#p>svg>foreignObject>section .pl-mh .pl-en,div#p>svg>foreignObject>section .pl-ms{font-weight:700;color:#005cc5}div#p>svg>foreignObject>section .pl-mi{font-style:italic;color:#24292e}div#p>svg>foreignObject>section .pl-mb{font-weight:700;color:#24292e}div#p>svg>foreignObject>section .pl-md{color:#b31d28;background-color:#ffeef0}div#p>svg>foreignObject>section .pl-mi1{color:#22863a;background-color:#f0fff4}div#p>svg>foreignObject>section .pl-mc{color:#e36209;background-color:#ffebda}div#p>svg>foreignObject>section .pl-mi2{color:#f6f8fa;background-color:#005cc5}div#p>svg>foreignObject>section .pl-mdr{font-weight:700;color:#6f42c1}div#p>svg>foreignObject>section .pl-ba{color:#586069}div#p>svg>foreignObject>section .pl-sg{color:#959da5}div#p>svg>foreignObject>section .pl-corl{text-decoration:underline;color:#032f62}div#p>svg>foreignObject>section .mb-0{margin-bottom:0!important}div#p>svg>foreignObject>section .my-2{margin-bottom:8px!important;margin-top:8px!important}div#p>svg>foreignObject>section .pl-0{padding-left:0!important}div#p>svg>foreignObject>section .py-0{padding-top:0!important;padding-bottom:0!important}div#p>svg>foreignObject>section .pl-1{padding-left:4px!important}div#p>svg>foreignObject>section .pl-2{padding-left:8px!important}div#p>svg>foreignObject>section .py-2{padding-top:8px!important;padding-bottom:8px!important}div#p>svg>foreignObject>section .pl-3{padding-left:16px!important}div#p>svg>foreignObject>section .pl-4{padding-left:24px!important}div#p>svg>foreignObject>section .pl-5{padding-left:32px!important}div#p>svg>foreignObject>section .pl-6{padding-left:40px!important}div#p>svg>foreignObject>section .pl-7{padding-left:48px!important}div#p>svg>foreignObject>section .pl-8{padding-left:64px!important}div#p>svg>foreignObject>section .pl-9{padding-left:80px!important}div#p>svg>foreignObject>section .pl-10{padding-left:96px!important}div#p>svg>foreignObject>section .pl-11{padding-left:112px!important}div#p>svg>foreignObject>section .pl-12{padding-left:128px!important}div#p>svg>foreignObject>section hr{border-bottom-color:#eee}div#p>svg>foreignObject>section kbd{display:inline-block;padding:3px 5px;font:11px SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;line-height:10px;color:#444d56;vertical-align:middle;background-color:#fafbfc;border:1px solid #d1d5da;border-radius:3px;box-shadow:inset 0 -1px 0 #d1d5da}div#p>svg>foreignObject>section:after,div#p>svg>foreignObject>section:before{display:table
+  /* content:""; */}div#p>svg>foreignObject>section:after{clear:both}div#p>svg>foreignObject>section>:first-child{margin-top:0!important}div#p>svg>foreignObject>section>:last-child{margin-bottom:0!important}div#p>svg>foreignObject>section a:not([href]){color:inherit;text-decoration:none}div#p>svg>foreignObject>section blockquote,div#p>svg>foreignObject>section details,div#p>svg>foreignObject>section dl,div#p>svg>foreignObject>section ol,div#p>svg>foreignObject>section p,div#p>svg>foreignObject>section pre,div#p>svg>foreignObject>section table,div#p>svg>foreignObject>section ul{margin-top:0;margin-bottom:16px}div#p>svg>foreignObject>section hr{height:.25em;padding:0;margin:24px 0;background-color:#e1e4e8;border:0}div#p>svg>foreignObject>section blockquote{padding:0 1em;color:#6a737d;border-left:.25em solid #dfe2e5}div#p>svg>foreignObject>section blockquote>:first-child{margin-top:0}div#p>svg>foreignObject>section blockquote>:last-child{margin-bottom:0}div#p>svg>foreignObject>section h1,div#p>svg>foreignObject>section h2,div#p>svg>foreignObject>section h3,div#p>svg>foreignObject>section h4,div#p>svg>foreignObject>section h5,div#p>svg>foreignObject>section h6{margin-top:24px;margin-bottom:16px;font-weight:600;line-height:1.25}div#p>svg>foreignObject>section h1{font-size:2em}div#p>svg>foreignObject>section h1,div#p>svg>foreignObject>section h2{padding-bottom:.3em;border-bottom:1px solid #eaecef}div#p>svg>foreignObject>section h2{font-size:1.5em}div#p>svg>foreignObject>section h3{font-size:1.25em}div#p>svg>foreignObject>section h4{font-size:1em}div#p>svg>foreignObject>section h5{font-size:.875em}div#p>svg>foreignObject>section h6{font-size:.85em;color:#6a737d}div#p>svg>foreignObject>section ol,div#p>svg>foreignObject>section ul{padding-left:2em}div#p>svg>foreignObject>section ol ol,div#p>svg>foreignObject>section ol ul,div#p>svg>foreignObject>section ul ol,div#p>svg>foreignObject>section ul ul{margin-top:0;margin-bottom:0}div#p>svg>foreignObject>section li{word-wrap:break-all}div#p>svg>foreignObject>section li>p{margin-top:16px}div#p>svg>foreignObject>section li+li{margin-top:.25em}div#p>svg>foreignObject>section dl{padding:0}div#p>svg>foreignObject>section dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:600}div#p>svg>foreignObject>section dl dd{padding:0 16px;margin-bottom:16px}div#p>svg>foreignObject>section table{display:block;width:100%;overflow:auto}div#p>svg>foreignObject>section table th{font-weight:600}div#p>svg>foreignObject>section table td,div#p>svg>foreignObject>section table th{padding:6px 13px;border:1px solid #dfe2e5}div#p>svg>foreignObject>section table tr{background-color:#fff;border-top:1px solid #c6cbd1}div#p>svg>foreignObject>section table tr:nth-child(2n){background-color:#f6f8fa}div#p>svg>foreignObject>section img{max-width:100%;box-sizing:initial;background-color:#fff}div#p>svg>foreignObject>section img[align=right]{padding-left:20px}div#p>svg>foreignObject>section img[align=left]{padding-right:20px}div#p>svg>foreignObject>section code{padding:.2em .4em;margin:0;font-size:85%;background-color:rgba(27,31,35,.05);border-radius:3px}div#p>svg>foreignObject>section pre{word-wrap:normal}div#p>svg>foreignObject>section pre>code{padding:0;margin:0;font-size:100%;word-break:normal;white-space:pre;background:transparent;border:0}div#p>svg>foreignObject>section .highlight{margin-bottom:16px}div#p>svg>foreignObject>section .highlight pre{margin-bottom:0;word-break:normal}div#p>svg>foreignObject>section pre{padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f6f8fa;border-radius:3px}div#p>svg>foreignObject>section pre code{display:inline;max-width:auto;padding:0;margin:0;overflow:visible;line-height:inherit;word-wrap:normal;background-color:initial;border:0}div#p>svg>foreignObject>section .commit-tease-sha{display:inline-block;font-family:SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;font-size:90%;color:#444d56}div#p>svg>foreignObject>section .full-commit .btn-outline:not(:disabled):hover{color:#005cc5;border-color:#005cc5}div#p>svg>foreignObject>section .blob-wrapper{overflow-x:auto;overflow-y:hidden}div#p>svg>foreignObject>section .blob-wrapper-embedded{max-height:240px;overflow-y:auto}div#p>svg>foreignObject>section .blob-num{width:1%;min-width:50px;padding-right:10px;padding-left:10px;font-family:SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;font-size:12px;line-height:20px;color:rgba(27,31,35,.3);text-align:right;white-space:nowrap;vertical-align:top;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}div#p>svg>foreignObject>section .blob-num:hover{color:rgba(27,31,35,.6)}div#p>svg>foreignObject>section .blob-num:before{content:attr(data-line-number)}div#p>svg>foreignObject>section .blob-code{position:relative;padding-right:10px;padding-left:10px;line-height:20px;vertical-align:top}div#p>svg>foreignObject>section .blob-code-inner{overflow:visible;font-family:SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;font-size:12px;color:#24292e;word-wrap:normal;white-space:pre}div#p>svg>foreignObject>section .pl-token.active,div#p>svg>foreignObject>section .pl-token:hover{cursor:pointer;background:#ffea7f}div#p>svg>foreignObject>section .tab-size[data-tab-size="1"]{-moz-tab-size:1;-o-tab-size:1;tab-size:1}div#p>svg>foreignObject>section .tab-size[data-tab-size="2"]{-moz-tab-size:2;-o-tab-size:2;tab-size:2}div#p>svg>foreignObject>section .tab-size[data-tab-size="3"]{-moz-tab-size:3;-o-tab-size:3;tab-size:3}div#p>svg>foreignObject>section .tab-size[data-tab-size="4"]{-moz-tab-size:4;-o-tab-size:4;tab-size:4}div#p>svg>foreignObject>section .tab-size[data-tab-size="5"]{-moz-tab-size:5;-o-tab-size:5;tab-size:5}div#p>svg>foreignObject>section .tab-size[data-tab-size="6"]{-moz-tab-size:6;-o-tab-size:6;tab-size:6}div#p>svg>foreignObject>section .tab-size[data-tab-size="7"]{-moz-tab-size:7;-o-tab-size:7;tab-size:7}div#p>svg>foreignObject>section .tab-size[data-tab-size="8"]{-moz-tab-size:8;-o-tab-size:8;tab-size:8}div#p>svg>foreignObject>section .tab-size[data-tab-size="9"]{-moz-tab-size:9;-o-tab-size:9;tab-size:9}div#p>svg>foreignObject>section .tab-size[data-tab-size="10"]{-moz-tab-size:10;-o-tab-size:10;tab-size:10}div#p>svg>foreignObject>section .tab-size[data-tab-size="11"]{-moz-tab-size:11;-o-tab-size:11;tab-size:11}div#p>svg>foreignObject>section .tab-size[data-tab-size="12"]{-moz-tab-size:12;-o-tab-size:12;tab-size:12}div#p>svg>foreignObject>section .task-list-item{list-style-type:none}div#p>svg>foreignObject>section .task-list-item+.task-list-item{margin-top:3px}div#p>svg>foreignObject>section .task-list-item input{margin:0 .2em .25em -1.6em;vertical-align:middle}div#p>svg>foreignObject>section .hljs{display:block;background:#fff;padding:.5em;color:#333;overflow-x:auto}div#p>svg>foreignObject>section .hljs-comment,div#p>svg>foreignObject>section .hljs-meta{color:#969896}div#p>svg>foreignObject>section .hljs-emphasis,div#p>svg>foreignObject>section .hljs-quote,div#p>svg>foreignObject>section .hljs-strong,div#p>svg>foreignObject>section .hljs-template-variable,div#p>svg>foreignObject>section .hljs-variable{color:#df5000}div#p>svg>foreignObject>section .hljs-keyword,div#p>svg>foreignObject>section .hljs-selector-tag,div#p>svg>foreignObject>section .hljs-type{color:#d73a49}div#p>svg>foreignObject>section .hljs-attribute,div#p>svg>foreignObject>section .hljs-bullet,div#p>svg>foreignObject>section .hljs-literal,div#p>svg>foreignObject>section .hljs-symbol{color:#0086b3}div#p>svg>foreignObject>section .hljs-name,div#p>svg>foreignObject>section .hljs-section{color:#63a35c}div#p>svg>foreignObject>section .hljs-tag{color:#333}div#p>svg>foreignObject>section .hljs-attr,div#p>svg>foreignObject>section .hljs-selector-attr,div#p>svg>foreignObject>section .hljs-selector-class,div#p>svg>foreignObject>section .hljs-selector-id,div#p>svg>foreignObject>section .hljs-selector-pseudo,div#p>svg>foreignObject>section .hljs-title{color:#6f42c1}div#p>svg>foreignObject>section .hljs-addition{color:#55a532;background-color:#eaffea}div#p>svg>foreignObject>section .hljs-deletion{color:#bd2c00;background-color:#ffecec}div#p>svg>foreignObject>section .hljs-link{text-decoration:underline}div#p>svg>foreignObject>section .hljs-number{color:#005cc5}div#p>svg>foreignObject>section .hljs-string{color:#032f62}div#p>svg>foreignObject>section svg[data-marp-fitting=svg]{max-height:563px}div#p>svg>foreignObject>section h1{color:#246;font-size:1.6em}div#p>svg>foreignObject>section h1,div#p>svg>foreignObject>section h2{border-bottom:none}div#p>svg>foreignObject>section h2{font-size:1.3em}div#p>svg>foreignObject>section h3{font-size:1.1em}div#p>svg>foreignObject>section h4{font-size:1.05em}div#p>svg>foreignObject>section h5{font-size:1em}div#p>svg>foreignObject>section h6{font-size:.9em}div#p>svg>foreignObject>section h1 strong,div#p>svg>foreignObject>section h2 strong,div#p>svg>foreignObject>section h3 strong,div#p>svg>foreignObject>section h4 strong,div#p>svg>foreignObject>section h5 strong,div#p>svg>foreignObject>section h6 strong{font-weight:inherit;color:#48c}div#p>svg>foreignObject>section hr{height:0;padding-top:.25em}div#p>svg>foreignObject>section pre{border:1px solid #999;line-height:1.15;overflow:visible}div#p>svg>foreignObject>section pre code svg[data-marp-fitting=svg]{max-height:529px}div#p>svg>foreignObject>section footer,div#p>svg>foreignObject>section header{margin:0;position:absolute;left:30px;color:hsla(0,0%,40%,.75);font-size:18px}div#p>svg>foreignObject>section header{top:21px}div#p>svg>foreignObject>section footer{bottom:21px}div#p>svg>foreignObject>section{align-items:stretch;background:#fff;display:flex;flex-direction:column;flex-wrap:nowrap;font-size:29px;height:720px;justify-content:center;padding:78.5px;width:1280px}div#p>svg>foreignObject>section>:last-child,div#p>svg>foreignObject>section[data-footer]>:nth-last-child(2){margin-bottom:0}div#p>svg>foreignObject>section>:first-child,div#p>svg>foreignObject>section>header:first-child+*{margin-top:0}div#p>svg>foreignObject>section:after{position:absolute;padding:0;right:30px;bottom:21px;font-size:24px;color:#777}div#p>svg>foreignObject>section.invert{background-color:#222;color:#e6eaf0}div#p>svg>foreignObject>section.invert:after{color:#999}div#p>svg>foreignObject>section.invert img{background-color:transparent}div#p>svg>foreignObject>section.invert a{color:#50b3ff}div#p>svg>foreignObject>section.invert h1{color:#a3c5e7}div#p>svg>foreignObject>section.invert h2,div#p>svg>foreignObject>section.invert h3,div#p>svg>foreignObject>section.invert h4,div#p>svg>foreignObject>section.invert h5{color:#ebeff5}div#p>svg>foreignObject>section.invert blockquote,div#p>svg>foreignObject>section.invert h6{border-color:#3d3f43;color:#939699}div#p>svg>foreignObject>section.invert h1 strong,div#p>svg>foreignObject>section.invert h2 strong,div#p>svg>foreignObject>section.invert h3 strong,div#p>svg>foreignObject>section.invert h4 strong,div#p>svg>foreignObject>section.invert h5 strong,div#p>svg>foreignObject>section.invert h6 strong{color:#7bf}div#p>svg>foreignObject>section.invert hr{background-color:#3d3f43}div#p>svg>foreignObject>section.invert footer,div#p>svg>foreignObject>section.invert header{color:hsla(0,0%,60%,.75)}div#p>svg>foreignObject>section.invert code,div#p>svg>foreignObject>section.invert kbd{background-color:#111}div#p>svg>foreignObject>section.invert kbd{border-color:#666;box-shadow:inset 0 -1px 0 #555;color:#e6eaf0}div#p>svg>foreignObject>section.invert table tr{background-color:#12181d;border-color:#60657b}div#p>svg>foreignObject>section.invert table tr:nth-child(2n){background-color:#1b2024}div#p>svg>foreignObject>section.invert table td,div#p>svg>foreignObject>section.invert table th{border-color:#5b5e61}div#p>svg>foreignObject>section.invert pre{background-color:#0a0e12;border-color:#777}div#p>svg>foreignObject>section.invert pre code{background-color:transparent}div#p>svg>foreignObject>section[data-color] h1,div#p>svg>foreignObject>section[data-color] h2,div#p>svg>foreignObject>section[data-color] h3,div#p>svg>foreignObject>section[data-color] h4,div#p>svg>foreignObject>section[data-color] h5,div#p>svg>foreignObject>section[data-color] h6{color:currentColor}div#p>svg>foreignObject>section img[alt~=center]{display:block;margin:0 auto}div#p>svg>foreignObject>section img[alt~=rel]{display:inline-block;position:relative;padding:20px;margin-top:20px;vertical-align:middle}div#p>svg>foreignObject>section[data-marpit-advanced-background=background]{display:block!important;padding:0!important}div#p>svg>foreignObject>section[data-marpit-advanced-background=background]:after,div#p>svg>foreignObject>section[data-marpit-advanced-background=background]:before,div#p>svg>foreignObject>section[data-marpit-advanced-background=content]:after,div#p>svg>foreignObject>section[data-marpit-advanced-background=content]:before{display:none!important}div#p>svg>foreignObject>section[data-marpit-advanced-background=background]>div[data-marpit-advanced-background-container]{all:initial;display:flex;flex-direction:row;height:100%;overflow:hidden;width:100%}div#p>svg>foreignObject>section[data-marpit-advanced-background=background]>div[data-marpit-advanced-background-container][data-marpit-advanced-background-direction=vertical]{flex-direction:column}div#p>svg>foreignObject>section[data-marpit-advanced-background=background][data-marpit-advanced-background-split]>div[data-marpit-advanced-background-container]{width:var(--marpit-advanced-background-split,50%)}div#p>svg>foreignObject>section[data-marpit-advanced-background=background][data-marpit-advanced-background-split=right]>div[data-marpit-advanced-background-container]{margin-left:calc(100% - var(--marpit-advanced-background-split, 50%))}div#p>svg>foreignObject>section[data-marpit-advanced-background=background]>div[data-marpit-advanced-background-container]>figure{all:initial;background-position:center;background-repeat:no-repeat;background-size:cover;flex:auto;margin:0}div#p>svg>foreignObject>section[data-marpit-advanced-background=content],div#p>svg>foreignObject>section[data-marpit-advanced-background=pseudo]{background:transparent!important}div#p>svg>foreignObject>section[data-marpit-advanced-background=pseudo],div#p>svg[data-marpit-svg]>foreignObject[data-marpit-advanced-background=pseudo]{pointer-events:none!important}div#p>svg>foreignObject>section[data-marpit-advanced-background-split]{width:100%;height:100%}</style></head><body><div class="bespoke-marp-osc"><button data-bespoke-marp-osc="prev" tabindex="-1" title="Previous slide">Previous slide</button><span data-bespoke-marp-osc="page"></span><button data-bespoke-marp-osc="next" tabindex="-1" title="Next slide">Next slide</button><button data-bespoke-marp-osc="fullscreen" tabindex="-1" title="Toggle fullscreen (f)">Toggle fullscreen</button><button data-bespoke-marp-osc="presenter" tabindex="-1" title="Open presenter view (p)">Open presenter view</button></div><div id="p"><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="1" data-class="invert" class="invert" style="--class:invert;">
+<h1><svg data-marp-fitting="svg"><foreignObject><span data-marp-fitting-svg-content>Serverless Computing for IoT </span></foreignObject></svg></h1>
+<p>Project Homeworks Lab.</p>
+<p><em>ISISLab - Università degli Studi di Salerno</em></p>
+<br />
+<ul>
+<li>Prof. Vittorio Scarano</li>
+<li>Carmine Spagnuolo, PhD</li>
+<li>Matteo D'Auria, PhD Student</li>
+</ul>
+<br />
+<p><img src="https://raw.githubusercontent.com/spagnuolocarmine/spagnuolocarmine.github.io/master/assets/files/myworkingspace/img/topo.png" alt="h:150" style="height:150px;" /></p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="2" data-paginate="true" data-marpit-pagination="2" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>Labs organization</h1>
+<ul>
+<li>We talk (asynchronously) on the
+<ul>
+<li>Discord ISISLab community <a href="https://discord.gg/BTt5fUp"><img src="https://img.shields.io/discord/693092516286693387.svg?label=&amp;logo=discord&amp;logoColor=ffffff&amp;color=7389D8&amp;labelColor=6A7EC2" alt="h:50" style="height:50px;" /></a></li>
+<li>channel CLASSES <code>#sciot</code></li>
+</ul>
+</li>
+<li>or you can schedule an online meeting (synchronously) during the official course hours (on the same platform).</li>
+<li>please mention us <code>@Carmine Spagnuolo#6098  and @Matteo D'Auria#1998</code>.</li>
+</ul>
+<p><a href="https://github.com/spagnuolocarmine/serverless-computing-for-iot"><img src="https://img.shields.io/badge/GitHub-serverless--computing--for--iot-blue" alt=" h:30" style="height:30px;" /></a> <a href="https://github.com/spagnuolocarmine/serverless-computing-for-iot/raw/master/assets/slides.html"><img src="https://img.shields.io/badge/HTML-Live%20Preview-red" alt="h:30" style="height:30px;" /></a></p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="3" data-paginate="true" data-marpit-pagination="3" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>Serverless Computing</h1>
+<ul>
+<li>Serverless computing is a cloud-computing execution model in which the cloud provider acts as the server, dynamically managing the allocation of machine resources.</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/serverless.png" alt="h:400 center" style="height:400px;" /></p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-paginate="true" data-marpit-pagination="4" data-marpit-pagination-total="50" style="--paginate:true;--marpit-advanced-background-split:20%;" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/faas.png&quot;);"></figure></div></section></foreignObject><foreignObject width="80%" height="720"><section id="4" data-paginate="true" data-marpit-pagination="4" data-marpit-pagination-total="50" style="--paginate:true;--marpit-advanced-background-split:20%;" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
+<h1>Function as a Service</h1>
+<ul>
+<li>Cloud computing services that allow customers to:
+<ul>
+<li>develop,</li>
+<li>run,</li>
+<li>and manage application functionalities</li>
+</ul>
+</li>
+<li><strong>Advantage</strong>: no complexity of building and maintaining the hardware/software infrastructure.</li>
+</ul>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section style="" data-marpit-advanced-background="pseudo" data-marpit-pagination="4" data-marpit-pagination-total="50"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-paginate="true" data-marpit-pagination="5" data-marpit-pagination-total="50" style="--paginate:true;--marpit-advanced-background-split:20%;" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/iot.png&quot;);"></figure></div></section></foreignObject><foreignObject width="80%" height="720"><section id="5" data-paginate="true" data-marpit-pagination="5" data-marpit-pagination-total="50" style="--paginate:true;--marpit-advanced-background-split:20%;" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
+<h1>The Internet of Thing (IoT)</h1>
+<ul>
+<li>
+<p>A network of physical devices, vehicles, home appliances, and other items embedded with electronics, software, sensors, actuators, and connectivity, which enables these things to connect, collect, and exchange data.</p>
+</li>
+<li>
+<p><strong>Course goal</strong>:</p>
+<ul>
+<li>efficiently collect and elaborate data, produce new data as the answer to particular conditions computed from the data received.</li>
+<li>integrate different cloud services to build an IoT application by using only open-source software.<br />
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section style="" data-marpit-advanced-background="pseudo" data-marpit-pagination="5" data-marpit-pagination-total="50"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="6" data-paginate="true" data-marpit-pagination="6" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>Lesson Objectives</h1>
+<ul>
+<li><em><strong>Design</strong></em> a computing architecture, based on open-source software, that allows the users to exploit the Function-as-service model in the context of IoT.</li>
+<li>The system must allow to <em><strong>deploy</strong></em> functions that are <em><strong>trigged</strong></em> by events generated from small devices such as sensors and  mobile (IoT devices)</li>
+<li>Use the <em><strong>message-passing</strong></em> communication paradigm, in particular on dedicated protocols as AMQP or MQTT.</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="7" data-paginate="true" data-marpit-pagination="7" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>Open-source Architecture</h1>
+<p><img src="https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/iot-architecture.png" alt="" /></p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="8" data-paginate="true" data-marpit-pagination="8" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>Architecture Components</h1>
+<ul>
+<li>Ubuntu 18.04 LTS <img src="https://img.shields.io/github/forks/nodejs/node?style=social" alt="h:50" style="height:50px;" /></li>
+<li>Application containers engine Docker and Docker Compose <img src="https://img.shields.io/github/forks/docker/compose?style=social" alt="h:50" style="height:50px;" /></li>
+<li>Serverless computing provider Nuclio <img src="https://img.shields.io/github/forks/nuclio/nuclio?style=social" alt="h:50" style="height:50px;" /></li>
+<li>AMQP and MQTT message broker RabbitMQ <img src="https://img.shields.io/github/forks/rabbitmq/rabbitmq-server?style=social" alt="h:50" style="height:50px;" /></li>
+<li>JavaScript Application runtime Node.js <img src="https://img.shields.io/github/forks/nodejs/node?style=social" alt="h:50" style="height:50px;" /></li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="9" data-paginate="true" data-marpit-pagination="9" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>Docker <img src="https://avatars0.githubusercontent.com/u/5429470?s=200&amp;v=4" alt="h:100" style="height:100px;" /></h1>
+<ul>
+<li>Docker is a tool designed to make it easier to create, deploy, and run applications by using containers.</li>
+</ul>
+<p><img src="https://www.guruadvisor.net/images/numero17/docker/docker-architecture.png" alt="w:800" style="width:800px;" /></p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="10" data-paginate="true" data-marpit-pagination="10" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>Docker Installation <img src="https://avatars0.githubusercontent.com/u/5429470?s=200&amp;v=4" alt="h:100" style="height:100px;" /></h1>
+<p>Install Docker using the Docker CE installation <a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/#extra-steps-for-aufs">guide</a></p>
+<pre><code><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>$ sudo apt-<span class="hljs-built_in">get</span> <span class="hljs-keyword">update</span>
+$ sudo apt-<span class="hljs-built_in">get</span> install \
+    apt-transport-https \
+    <span class="hljs-keyword">ca</span>-certificates \
+    curl \
+    software-properties-common
+$ curl -fsSL http<span class="hljs-variable">s:</span>//download.docker.<span class="hljs-keyword">com</span>/linux/ubuntu/gpg | sudo apt-key <span class="hljs-built_in">add</span> -
+$ sudo apt-key fingerprint <span class="hljs-number">0</span>EBFCD88
+$ sudo <span class="hljs-built_in">add</span>-apt-repository \
+   <span class="hljs-comment">"deb [arch=amd64] https://download.docker.com/linux/ubuntu \</span>
+   $(lsb_release -<span class="hljs-keyword">cs</span>) \
+   stable<span class="hljs-comment">"</span>
+$ sudo apt-<span class="hljs-built_in">get</span> <span class="hljs-keyword">update</span>
+$ sudo apt-<span class="hljs-built_in">get</span> install docker-<span class="hljs-keyword">ce</span>
+</span></span></foreignObject></svg></code></pre>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="11" data-paginate="true" data-marpit-pagination="11" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>Docker IMPORTANT FIX <img src="https://avatars0.githubusercontent.com/u/5429470?s=200&amp;v=4" alt="h:100" style="height:100px;" /></h1>
+<ul>
+<li>Ubuntu 18.04 changed to use systemd-resolved to generate /etc/resolv.conf.</li>
+<li>Now by default it uses a local DNS cache 127.0.0.53.</li>
+<li>It will not work inside a container, so Docker will default to Google's 8.8.8.8 DNS server, which may break for people behind a firewall.</li>
+</ul>
+<pre><code class="language-sh"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>sudo ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
+</span></span></foreignObject></svg></code></pre>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="12" data-paginate="true" data-marpit-pagination="12" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>Docker Compose <img src="https://avatars0.githubusercontent.com/u/5429470?s=200&amp;v=4" alt="h:100" style="height:100px;" /></h1>
+<ul>
+<li>Compose is a tool for defining and running multi-container Docker applications.</li>
+<li>With Compose, you use a YAML file to configure your application’s services.</li>
+</ul>
+
+<ul>
+<li>Install Docker Compose using the Docker Compose installation <a href="https://docs.docker.com/compose/install/#install-compose">guide</a>.</li>
+</ul>
+<pre><code class="language-sh"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>$ sudo curl -L <span class="hljs-string">"https://github.com/docker/compose/releases/download/
+1.22.0/docker-compose-<span class="hljs-variable">$(uname -s)</span>-<span class="hljs-variable">$(uname -m)</span>"</span> -o /usr/<span class="hljs-built_in">local</span>/bin/docker-compose
+$ sudo chmod +x /usr/<span class="hljs-built_in">local</span>/bin/docker-compose
+</span></span></foreignObject></svg></code></pre>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="13" data-paginate="true" data-marpit-pagination="13" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>Nuclio <img src="https://github.com/nuclio/nuclio/raw/development/docs/assets/images/logo.png" alt="h:100" style="height:100px;" /></h1>
+<ul>
+<li>
+<p>Nuclio is a new &quot;serverless&quot; project, derived from Iguazio's elastic data life-cycle management service for high-performance events and data processing.</p>
+</li>
+<li>
+<p>The simplest way to explore Nuclio is to run its graphical user interface (GUI) of the Nuclio dashboard.</p>
+</li>
+<li>
+<p>The Nuclio documentation is available at <a href="https://nuclio.io/docs/latest/">this link</a>.</p>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="14" data-paginate="true" data-marpit-pagination="14" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>Nuclio <img src="https://github.com/nuclio/nuclio/raw/development/docs/assets/images/logo.png" alt="h:100" style="height:100px;" /></h1>
+<ul>
+<li>Start <a href="https://github.com/nuclio/nuclio">Nuclio</a> using a docker container.</li>
+</ul>
+<pre><code class="language-sh"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>$ docker run -p 8070:8070 -v /var/run/docker.sock:/var/run/
+docker.sock -v /tmp:/tmp nuclio/dashboard:stable-amd64
+</span></span></foreignObject></svg></code></pre>
+<ul>
+<li>
+<p>Browse to <a href="http://localhost:8070">http://localhost:8070</a>, create a project, and add a function.</p>
+</li>
+<li>
+<p>When run outside of an orchestration platform (for example, Kubernetes or Swarm), the dashboard will simply deploy to the local Docker daemon.</p>
+</li>
+<li>
+<p>Nuclio provide also the nctcl application client that allows to basically execute the same operation of Nuclio dashboard.</p>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="15" data-paginate="true" data-marpit-pagination="15" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>Nuclio <img src="https://github.com/nuclio/nuclio/raw/development/docs/assets/images/logo.png" alt="h:100" style="height:100px;" /></h1>
+<p><strong>How to deploy functions in Nuclio using the Nuclio dashboard:</strong></p>
+<p><img src="https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/function0.png" alt="" /></p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="16" data-paginate="true" data-marpit-pagination="16" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>Nuclio <img src="https://github.com/nuclio/nuclio/raw/development/docs/assets/images/logo.png" alt="h:100" style="height:100px;" /></h1>
+<p><strong>How to deploy functions in Nuclio using the Nuclio dashboard:</strong></p>
+<p><img src="https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/function1.png" alt="h:400 center" style="height:400px;" /></p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="17" data-paginate="true" data-marpit-pagination="17" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>Nuclio <img src="https://github.com/nuclio/nuclio/raw/development/docs/assets/images/logo.png" alt="h:100" style="height:100px;" /></h1>
+<p><strong>How to deploy functions in Nuclio using the Nuclio dashboard:</strong></p>
+<p><img src="https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/function2.png" alt="h:400 w:800 center" style="width:800px;height:400px;" /></p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="18" data-paginate="true" data-marpit-pagination="18" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>Nuclio <img src="https://github.com/nuclio/nuclio/raw/development/docs/assets/images/logo.png" alt="h:100" style="height:100px;" /></h1>
+<p><strong>How to deploy functions in Nuclio using the Nuclio dashboard:</strong></p>
+<p><img src="https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/configuration.png" alt="h:400 w:800 center" style="width:800px;height:400px;" /></p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="19" data-paginate="true" data-marpit-pagination="19" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>Nuclio <img src="https://github.com/nuclio/nuclio/raw/development/docs/assets/images/logo.png" alt="h:100" style="height:100px;" /></h1>
+<p><strong>How to deploy functions in Nuclio using the Nuclio dashboard:</strong></p>
+<p><img src="https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/trigger.png" alt="h:400 w:800 center" style="width:800px;height:400px;" /></p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="20" data-paginate="true" data-marpit-pagination="20" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>Nuclio <img src="https://github.com/nuclio/nuclio/raw/development/docs/assets/images/logo.png" alt="h:100" style="height:100px;" /></h1>
+<p><strong>How to deploy functions in Nuclio using the Nuclio dashboard and .yaml file:</strong></p>
+<p><img src="https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/yaml_1.png" alt="h:400 w:800 center" style="width:800px;height:400px;" /></p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="21" data-paginate="true" data-marpit-pagination="21" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>Nuclio <img src="https://github.com/nuclio/nuclio/raw/development/docs/assets/images/logo.png" alt="h:100" style="height:100px;" /></h1>
+<p><strong>How to deploy functions in Nuclio using the Nuclio dashboard and .yaml file:</strong></p>
+<p><img src="https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/yaml_2.png" alt="h:400 w:800 center" style="width:800px;height:400px;" /></p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="22" data-paginate="true" data-marpit-pagination="22" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>RabbitMQ <img src="https://avatars0.githubusercontent.com/u/96669?s=200&amp;v=4" alt="h:100" style="height:100px;" /></h1>
+<ul>
+<li>
+<p>RabbitMQ is lightweight and easy to deploy on premises and in the cloud. It supports multiple messaging protocols. RabbitMQ can be deployed in distributed and federated configurations to meet high-scale, high-availability requirements.</p>
+</li>
+<li>
+<p>Start <a href="https://www.rabbitmq.com">RabbitMQ</a> instance with MQTT enabled using docker.</p>
+</li>
+</ul>
+<pre><code class="language-sh"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>$ docker run -p 9000:15672  -p 1883:1883 -p 5672:5672  cyrilix/rabbitmq-mqtt 
+</span></span></foreignObject></svg></code></pre>
+<ul>
+<li>Browse to <a href="http://localhost:9000">http://localhost:9000</a>, and login using username: guest and password: guest, to access to the RabbitMQ managment, where is possible to visualize the message queues and the broker status.</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="23" data-paginate="true" data-marpit-pagination="23" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>AMQP and MQTT JS clients <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/480px-Unofficial_JavaScript_logo_2.svg.png" alt="h:100" style="height:100px;" /></h1>
+<ul>
+<li>There are different libraries for many languages for interacting with protocol AMQP and MQTT you can use what you want. We use:
+<ul>
+<li><a href="https://github.com/squaremo/amqp.node">AMQP 0-9-1</a> for Javascript AMQP.</li>
+<li><a href="https://github.com/mqttjs/MQTT.js">MQTT.js</a> for JavaScript MQTT.</li>
+</ul>
+</li>
+</ul>
+<p>We used a general purpose <a href="https://play.google.com/store/apps/details?id=in.dc297.mqttclpro">MQTT client</a> for Android.</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="24" data-paginate="true" data-marpit-pagination="24" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>Docker useful commands <img src="https://avatars0.githubusercontent.com/u/5429470?s=200&amp;v=4" alt="h:100" style="height:100px;" /></h1>
+<ul>
+<li><strong>Docker container ID</strong>: <code>sudo docker ps -a</code>
+<ul>
+<li>displays all deployed containers, remember that functions are Docker containers, the IMAGE field is the function name and version, while the CONTAINER ID is the ID of the function. In this view, it is also possible to see the listening port for the function in the field PORTS.</li>
+</ul>
+</li>
+<li><strong>Docker Logs</strong>: <code>sudo docker logs CONTAINER ID</code>
+<ul>
+<li>displays the STDOUT and STDERR of the associated container.</li>
+</ul>
+</li>
+<li><strong>Docker Kill</strong>: <code>sudo docker kill CONTAINER ID</code>
+<ul>
+<li>kills the associated container.</li>
+</ul>
+</li>
+<li><strong>Docker Remove</strong>: <code>sudo docker rm CONTAINER ID</code>
+<ul>
+<li>removes the associated container.</li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="25" data-class="invert" class="invert" style="--class:invert;">
+<h1><svg data-marp-fitting="svg"><foreignObject><span data-marp-fitting-svg-content>MQTT Temperature Example </span></foreignObject></svg></h1>
+
+<p><img src="https://cdn1.iconfinder.com/data/icons/internet-of-things-multicilor/512/Internet_of_things-ps_style-19-512.png" alt="h:500 center" style="height:500px;" /></p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="26" data-paginate="true" data-marpit-pagination="26" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>Application Goals <img src="https://cdn1.iconfinder.com/data/icons/business-456/500/target-512.png" alt="h:100" style="height:100px;" /></h1>
+<p>The temperature example aims to demonstrate the potential of the suggested architecture to collect data from IoT sensors and logging this data on an external data manager.</p>
+<p>Scenario:</p>
+<ul>
+<li>We have several sensors that detect the temperature.</li>
+<li>These sensors send these temperatures through the use of the MQTT protocol.</li>
+<li>These temperatures are processed in a Serverless way.</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="27" data-paginate="true" data-marpit-pagination="27" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>First Step</h1>
+<ul>
+<li>The first step to do is access to the Nuclio dashboard and create a new project named IOT-MQTT.</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/nuclio_project.png" alt="h:450 center" style="height:450px;" /></p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="28" data-marpit-fragments="4" data-paginate="true" data-marpit-pagination="28" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>MQTT Temperature Example</h1>
+<p>The application is composed by four functions:</p>
+<ul>
+<li data-marpit-fragment="1"><strong><a href="#consume-temperature-function"> Temperature Consume Function</a></strong> triggered by a new MQTT message on the topic &quot;iot/sensors/temperature&quot;.</li>
+<li data-marpit-fragment="2"><strong><a href="#send-random-temperature-function">Send Random Temperature Function</a></strong> sends a new temperature value on the MQTT on the topic &quot;iot/sensors/temperature&quot;.</li>
+<li data-marpit-fragment="3"><strong><a href="#logger">Logger</a></strong> logs the invocation of the consume function, this function is in waiting for new messages on the queue AMQP &quot;iot/logs&quot;. It is a JavaScript function for Node.js and is executed on an external machine.</li>
+<li data-marpit-fragment="4"><strong><a href="#iot-client">IoT Client</a></strong> a general purpose Android MQTT Client.</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="29" data-paginate="true" data-marpit-pagination="29" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>MQTT Temperature Example</h1>
+<p><img src="https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/temp_app.png" alt="" /></p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="30" data-class="invert" class="invert" style="--class:invert;">
+<h1><svg data-marp-fitting="svg"><foreignObject><span data-marp-fitting-svg-content>MQTT Temperature Example </span></foreignObject></svg></h1>
+
+<h3>Temperature  Consume Function</h3>
+<p><img src="https://media0.giphy.com/media/d2ItDZZumUI6Y/200.gif" alt="h:500 center" style="height:500px;" /></p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="31" data-paginate="true" data-marpit-pagination="31" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>Temperature Consume Function</h1>
+<pre><code class="language-javascript"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-keyword">var</span> amqp = <span class="hljs-built_in">require</span>(<span class="hljs-string">'amqplib'</span>);
+        <span class="hljs-keyword">var</span> FUNCTION_NAME = <span class="hljs-string">"mqttconsume"</span>;
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">send_feedback</span>(<span class="hljs-params">msg</span>)</span>{
+            <span class="hljs-keyword">var</span> q = <span class="hljs-string">'iot/logs'</span>;
+            amqp.connect(<span class="hljs-string">'amqp://guest:guest@172.16.15.52:5672'</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">conn</span>) </span>{
+                <span class="hljs-keyword">return</span> conn.createChannel().then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">ch</span>) </span>{
+                    <span class="hljs-keyword">var</span> ok = ch.assertQueue(q, {<span class="hljs-attr">durable</span>: <span class="hljs-literal">false</span>});
+                    <span class="hljs-keyword">return</span> ok.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">_qok</span>) </span>{
+                    ch.sendToQueue(q, Buffer.from(msg));
+                    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">" [x] Sent '%s'"</span>, msg);
+                    <span class="hljs-keyword">return</span> ch.close();
+                    });
+                }).finally(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{ 
+                        conn.close();
+                    });
+            }).catch(<span class="hljs-built_in">console</span>.warn);
+        }
+</span></span></foreignObject></svg></code></pre>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="32" data-paginate="true" data-marpit-pagination="32" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>Temperature Consume Function</h1>
+<pre><code><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">bin2string</span>(<span class="hljs-params">array</span>)</span>{
+          <span class="hljs-keyword">var</span> result = <span class="hljs-string">""</span>;
+          <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; array.length; ++i){
+            result+= (<span class="hljs-built_in">String</span>.fromCharCode(array[i]));
+          }
+          <span class="hljs-keyword">return</span> result;
+        }
+
+        exports.handler = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">context, event</span>) </span>{
+            <span class="hljs-keyword">var</span> _event = <span class="hljs-built_in">JSON</span>.parse(<span class="hljs-built_in">JSON</span>.stringify(event));
+            <span class="hljs-keyword">var</span> _data = bin2string(_event.body.data);
+
+            context.callback(<span class="hljs-string">"feedback "</span>+_data);
+
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"TRIGGER "</span>+_data);
+            send_feedback(<span class="hljs-string">"Invoked Function MQTT: "</span>+FUNCTION_NAME+<span class="hljs-string">" received "</span>+_data);
+        };
+</span></span></foreignObject></svg></code></pre>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="33" data-paginate="true" data-marpit-pagination="33" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>Temperature Consume Function</h1>
+<ul>
+<li>We deploy using the Nuclio's Docker compose specifics:
+<ul>
+<li><em>.yaml</em> file that declares all functions specifications and source code.</li>
+<li>function code (<em>JavaScript</em>) is encoded in base64 and copied in the attribute &quot;functionSourceCode&quot;.</li>
+<li>triggered with MQTT events on topic <code>iot/sensors/temperature</code>.</li>
+</ul>
+</li>
+<li>We use the <em>amqplib</em> to send feedback to a log server:
+<ul>
+<li>&quot;commands&quot; attribute <img class="emoji" draggable="false" alt="➡️" src="https://twemoji.maxcdn.com/2/svg/27a1.svg" data-marp-twemoji=""/> <code>npm install amqplib</code>.</li>
+</ul>
+</li>
+<li><img class="emoji" draggable="false" alt="⚠️" src="https://twemoji.maxcdn.com/2/svg/26a0.svg" data-marp-twemoji=""/> Change the user, password and IP for the log server and for the MQTT trigger (yaml file <code>url</code> field):</li>
+</ul>
+<pre><code><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-string">...</span>
+amqp.<span class="hljs-keyword">connect</span><span class="hljs-params">('amqp://guest:guest@172.16.15.52:5672')</span><span class="hljs-string">.then</span><span class="hljs-params">(function(conn)</span> <span class="hljs-string">...</span>
+</span></span></foreignObject></svg></code></pre>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="34" data-paginate="true" data-marpit-pagination="34" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>Temperature Consume Function</h1>
+<pre><code class="language-yaml"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-attr">apiVersion:</span> <span class="hljs-string">"nuclio.io/v1"</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">Function</span>
+<span class="hljs-attr">metadata:</span>
+  <span class="hljs-attr">name:</span> <span class="hljs-string">mqttconsume</span>
+  <span class="hljs-attr">namespace:</span> <span class="hljs-string">nuclio</span>
+<span class="hljs-attr">spec:</span>
+  <span class="hljs-attr">handler:</span> <span class="hljs-string">"main:handler"</span>
+  <span class="hljs-attr">description:</span> <span class="hljs-string">"Function the is ..."</span>
+  <span class="hljs-attr">runtime:</span> <span class="hljs-string">nodejs</span>
+  <span class="hljs-attr">image:</span> <span class="hljs-string">"nuclio/processor-mqttconsume:latest"</span>
+  <span class="hljs-attr">minReplicas:</span> <span class="hljs-number">1</span>
+  <span class="hljs-attr">maxReplicas:</span> <span class="hljs-number">1</span>
+  <span class="hljs-attr">targetCPU:</span> <span class="hljs-number">75</span>
+  <span class="hljs-attr">triggers:</span>
+    <span class="hljs-attr">myMqttTrigger:</span>
+      <span class="hljs-attr">kind:</span> <span class="hljs-string">"mqtt"</span>
+      <span class="hljs-attr">url:</span> <span class="hljs-string">"guest:guest@172.16.15.52:1883"</span>
+      <span class="hljs-attr">attributes:</span>
+          <span class="hljs-attr">subscriptions:</span>
+          <span class="hljs-bullet">-</span> <span class="hljs-attr">topic:</span> <span class="hljs-string">iot/sensors/temperature</span>
+            <span class="hljs-attr">qos:</span> <span class="hljs-number">0</span>
+  <span class="hljs-attr">build:</span>
+    <span class="hljs-attr">functionSourceCode:</span> <span class="hljs-string">&lt;base64</span> <span class="hljs-string">of</span> <span class="hljs-string">the</span> <span class="hljs-string">code&gt;</span>
+    <span class="hljs-attr">commands:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">'npm install amqplib'</span>
+    <span class="hljs-attr">codeEntryType:</span> <span class="hljs-string">sourceCode</span>
+  <span class="hljs-attr">platform:</span> <span class="hljs-string">{}</span>
+</span></span></foreignObject></svg></code></pre>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="35" data-paginate="true" data-marpit-pagination="35" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>Temperature Consume Function</h1>
+<ul>
+<li>
+<p>From Nuclio dashboard create a new project <code> IOT-MQTT</code>.</p>
+</li>
+<li>
+<p>Create a new function <code>Consume</code></p>
+<ul>
+<li>select import from yaml, and load the file <code>iot/mqtt/temperature/amqpconsume.yaml</code>;</li>
+<li>press <strong>Deploy</strong> (see the Error log).</li>
+</ul>
+</li>
+<li>
+<p>You can build your function manually by pasting the code, setting the MQTT trigger, and adding the <em>amqplib</em> in the install commands:</p>
+<ul>
+<li><img class="emoji" draggable="false" alt="⚠️" src="https://twemoji.maxcdn.com/2/svg/26a0.svg" data-marp-twemoji=""/> MQTT trigger must be  <img class="emoji" draggable="false" alt="➡️" src="https://twemoji.maxcdn.com/2/svg/27a1.svg" data-marp-twemoji=""/> <code>user:passowrd@IP:1883</code>;</li>
+<li>don't fill the user and password text field.</li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="36" data-class="invert" class="invert" style="--class:invert;">
+<h1><svg data-marp-fitting="svg"><foreignObject><span data-marp-fitting-svg-content>MQTT Temperature Example </span></foreignObject></svg></h1>
+
+<h3>Send Random Temperature Function</h3>
+<p><img src="https://i.gifer.com/4n4S.gif" alt="h:500 center" style="height:500px;" /></p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="37" data-paginate="true" data-marpit-pagination="37" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>Send Random Temperature Function</h1>
+<pre><code class="language-javascript"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-keyword">var</span> mqtt = <span class="hljs-built_in">require</span>(<span class="hljs-string">'mqtt'</span>), url = <span class="hljs-built_in">require</span>(<span class="hljs-string">'url'</span>);
+
+<span class="hljs-keyword">var</span> mqtt_url = url.parse(process.env.CLOUDAMQP_MQTT_URL || <span class="hljs-string">'mqtt://guest:guest@172.16.15.52:1883'</span>);
+<span class="hljs-keyword">var</span> auth = (mqtt_url.auth || <span class="hljs-string">':'</span>).split(<span class="hljs-string">':'</span>);
+<span class="hljs-keyword">var</span> url = <span class="hljs-string">"mqtt://"</span> + mqtt_url.host;
+
+<span class="hljs-keyword">var</span> options = {
+  <span class="hljs-attr">port</span>: mqtt_url.port,
+  <span class="hljs-attr">clientId</span>: <span class="hljs-string">'mqttjs_'</span> + <span class="hljs-built_in">Math</span>.random().toString(<span class="hljs-number">16</span>).substr(<span class="hljs-number">2</span>, <span class="hljs-number">8</span>),
+  <span class="hljs-attr">username</span>: auth[<span class="hljs-number">0</span>],
+  <span class="hljs-attr">password</span>: auth[<span class="hljs-number">1</span>],
+};
+...
+</span></span></foreignObject></svg></code></pre>
+<ul>
+<li><img class="emoji" draggable="false" alt="⚠️" src="https://twemoji.maxcdn.com/2/svg/26a0.svg" data-marp-twemoji=""/> Change the user, password and IP for the <code>mqtt_url</code> variable:</li>
+</ul>
+<pre><code><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-built_in">var</span> mqtt_url = url.<span class="hljs-built_in">parse</span>(process.env.CLOUDAMQP_MQTT_URL || 'mqtt:<span class="hljs-comment">//guest:guest@172.16.15.52:1883');</span>
+</span></span></foreignObject></svg></code></pre>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="38" data-paginate="true" data-marpit-pagination="38" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>Send Random Temperature Function</h1>
+<pre><code class="language-javascript"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>...
+exports.handler = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">context, event</span>) </span>{
+    <span class="hljs-keyword">var</span> client = mqtt.connect(url, options);
+    
+    client.on(<span class="hljs-string">'connect'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        client.publish(<span class="hljs-string">'iot/sensors/temperature'</span>, (<span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random()*<span class="hljs-number">30</span>)).toString(), <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+                    client.end(); 
+                    context.callback(<span class="hljs-string">'MQTT Message Sent'</span>);
+                } );
+                            
+        });        
+    
+};
+</span></span></foreignObject></svg></code></pre>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="39" data-paginate="true" data-marpit-pagination="39" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>Send Random Temperature Function</h1>
+<pre><code class="language-yaml"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-attr">apiVersion:</span> <span class="hljs-string">"nuclio.io/v1"</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">Function</span>
+<span class="hljs-attr">metadata:</span>
+  <span class="hljs-attr">name:</span> <span class="hljs-string">mqttrandomtemperature</span>
+  <span class="hljs-attr">namespace:</span> <span class="hljs-string">nuclio</span>
+<span class="hljs-attr">spec:</span>
+  <span class="hljs-attr">handler:</span> <span class="hljs-string">"main:handler"</span>
+  <span class="hljs-attr">description:</span> <span class="hljs-string">"Function to generate an event on the MQTT queue sending a temperature value."</span>
+  <span class="hljs-attr">runtime:</span> <span class="hljs-string">nodejs</span>
+  <span class="hljs-attr">image:</span> <span class="hljs-string">"nuclio/processor-mqtt-random-temperature:latest"</span>
+  <span class="hljs-attr">minReplicas:</span> <span class="hljs-number">1</span>
+  <span class="hljs-attr">maxReplicas:</span> <span class="hljs-number">1</span>
+  <span class="hljs-attr">targetCPU:</span> <span class="hljs-number">75</span>
+  <span class="hljs-attr">build:</span>
+    <span class="hljs-attr">functionSourceCode:</span> <span class="hljs-string">&lt;base64</span> <span class="hljs-string">of</span> <span class="hljs-string">the</span> <span class="hljs-string">code&gt;</span>
+    <span class="hljs-attr">commands:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">'npm install mqtt'</span>
+    <span class="hljs-attr">codeEntryType:</span> <span class="hljs-string">sourceCode</span>
+  <span class="hljs-attr">platform:</span> <span class="hljs-string">{}</span>
+
+</span></span></foreignObject></svg></code></pre>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="40" data-paginate="true" data-marpit-pagination="40" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>Send Random Temperature Function deploy</h1>
+<ul>
+<li>
+<p>Create a new function <code>Produce</code></p>
+<ul>
+<li>select import from yaml, and load the file <code>iot/mqtt/temperature/amqpevent.yaml</code>;</li>
+<li>press <strong>Deploy</strong> (see the Error log).</li>
+</ul>
+</li>
+<li>
+<p>You can build your function manually by pasting the code, setting the MQTT trigger and adding the <em>amqplib</em> in the install commands.</p>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="41" data-paginate="true" data-marpit-pagination="41" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>Invoke Send Random Temperature Function</h1>
+<ul>
+<li>
+<p>For invoking the function is possible to press the button <code>TEST</code> in the dashboard.</p>
+</li>
+<li>
+<p>Or invoke the function by generating an <em><strong>HTTP event</strong></em> using the command line tool <strong>curl</strong></p>
+</li>
+</ul>
+<pre><code class="language-sh"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>curl -X POST -H <span class="hljs-string">"Content-Type: application/text"</span>  http://localhost:39823
+</span></span></foreignObject></svg></code></pre>
+<p><strong>Notice</strong>: each Nuclio' function is identified by the serving port, you can see the serving port in the dashboard (change the port in the url <a href="http://localhost">http://localhost</a>:PORT).</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="42" data-class="invert" class="invert" style="--class:invert;">
+<h1><svg data-marp-fitting="svg"><foreignObject><span data-marp-fitting-svg-content>MQTT Temperature Example </span></foreignObject></svg></h1>
+
+<h3>Logger Server</h3>
+<p><img src="https://i.gifer.com/5SOi.gif" alt="h:500 center" style="height:500px;" /></p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="43" data-paginate="true" data-marpit-pagination="43" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>Logger Server</h1>
+<pre><code class="language-javascript"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-keyword">var</span> amqp = <span class="hljs-built_in">require</span>(<span class="hljs-string">'amqplib'</span>);
+amqp.connect(<span class="hljs-string">'amqp://guest:guest@172.16.15.52:5672'</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">conn</span>) </span>{
+  process.once(<span class="hljs-string">'SIGINT'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{ conn.close(); });
+  <span class="hljs-keyword">return</span> conn.createChannel().then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">ch</span>) </span>{
+    <span class="hljs-keyword">var</span> ok = ch.assertQueue(<span class="hljs-string">'iot/logs'</span>, {<span class="hljs-attr">durable</span>: <span class="hljs-literal">false</span>});
+    ok = ok.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">_qok</span>) </span>{
+      <span class="hljs-keyword">return</span> ch.consume(<span class="hljs-string">'iot/logs'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">msg</span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">" [x] Received '%s'"</span>, msg.content.toString());
+      }, {<span class="hljs-attr">noAck</span>: <span class="hljs-literal">true</span>});
+    });
+    <span class="hljs-keyword">return</span> ok.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">_consumeOk</span>) </span>{
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">' [*] Waiting for messages. To exit press CTRL+C'</span>);
+    });
+  });
+}).catch(<span class="hljs-built_in">console</span>.warn);
+</span></span></foreignObject></svg></code></pre>
+<ul>
+<li><img class="emoji" draggable="false" alt="⚠️" src="https://twemoji.maxcdn.com/2/svg/26a0.svg" data-marp-twemoji=""/> Change the user, password and IP for the <code>mqtt_url</code> variable:</li>
+</ul>
+<pre><code><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-string">...</span>
+amqp.<span class="hljs-keyword">connect</span><span class="hljs-params">('amqp://guest:guest@172.16.15.52:5672')</span><span class="hljs-string">.then..</span>
+</span></span></foreignObject></svg></code></pre>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="44" data-paginate="true" data-marpit-pagination="44" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>Execute the Logger</h1>
+<p>Running the server using the Node.js runtime.</p>
+<pre><code class="language-sh"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>$ npm install amqplib
+$ node logger.js
+</span></span></foreignObject></svg></code></pre>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="45" data-paginate="true" data-marpit-pagination="45" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>Android IoT Client (1)</h1>
+<ul>
+<li><a href="https://play.google.com/store/apps/details?id=in.dc297.mqttclpro">MQTT Client</a>.</li>
+<li>In this app, you can connect to the RabbitMQ broker using the protocol MQTT (create a new connection to the IP where the RabbitMQ is running).</li>
+<li>After creating the connection, you can easily send or receive values on some topics.</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="46" data-paginate="true" data-marpit-pagination="46" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>Android IoT Client (1) - Connection</h1>
+<p><img src="https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/mqqt1.jpg" alt="width:175px rel" style="width:175px;" />  <img src="https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/mqtt2.jpg" alt="width:175px rel" style="width:175px;" /></p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="47" data-paginate="true" data-marpit-pagination="47" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>Android IoT Client (1) - Subscribe and send/receive message</h1>
+<p><img src="https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/mqtt3.jpg" alt="width:175px rel " style="width:175px;" />  <img src="https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/mqtt4.jpg" alt="width:175px rel" style="width:175px;" />  <img src="https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/mqtt5.jpg" alt="width:175px rel" style="width:175px;" /></p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="48" data-paginate="true" data-marpit-pagination="48" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>Android IoT Client (2) <img class="emoji" draggable="false" alt="🌟" src="https://twemoji.maxcdn.com/2/svg/1f31f.svg" data-marp-twemoji=""/></h1>
+<ul>
+<li><a href="https://play.google.com/store/apps/details?id=com.sanyamarya.mqtizermqtt_client">MQTIZER - Free MQTT Client</a>.</li>
+<li>In this app, you can connect to the RabbitMQ broker using the protocol MQTT (create a new connection to the IP where the RabbitMQ is running).</li>
+<li>After creating the connection, you can easily send or receive values on some topics.</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="49" data-paginate="true" data-marpit-pagination="49" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>Android IoT Client (2) <img class="emoji" draggable="false" alt="🌟" src="https://twemoji.maxcdn.com/2/svg/1f31f.svg" data-marp-twemoji=""/> - Connection</h1>
+<p><img src="https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/mqtizer1.jpg" alt="width:175px rel" style="width:175px;" /> <img src="https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/mqtizer2.jpg" alt="width:175px rel" style="width:175px;" /></p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="50" data-paginate="true" data-marpit-pagination="50" data-marpit-pagination-total="50" style="--paginate:true;">
+<h1>Android IoT Client (2) <img class="emoji" draggable="false" alt="🌟" src="https://twemoji.maxcdn.com/2/svg/1f31f.svg" data-marp-twemoji=""/> - Subscription and send/receive message</h1>
+
+<p><img src="https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/mqtizer5.jpg" alt="width:175px rel" style="width:175px;" />  <img src="https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/mqtizer3.jpg" alt="width:175px rel " style="width:175px;" /> <img src="https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/mqtizer4.jpg" alt="width:175px rel" style="width:175px;" />  <img src="https://raw.githubusercontent.com/spagnuolocarmine/serverless-computing-for-iot/master/assets/mqtizer5.jpg" alt="width:175px rel" style="width:175px;" /></p>
+</section>
+<script>!function(){"use strict";function t(t){Array.from(document.getElementsByTagName("svg"),e=>{if(e.hasAttribute("data-marpit-svg")){const{clientHeight:r,clientWidth:a}=e;e.style.transform||(e.style.transform="translateZ(0)");const o=t||e.currentScale||1,i=e.viewBox.baseVal.width/o,n=e.viewBox.baseVal.height/o,s=Math.min(r/n,a/i);Array.from(e.querySelectorAll(":scope > foreignObject"),t=>{const e=t.x.baseVal.value,o=t.y.baseVal.value;Array.from(t.querySelectorAll(":scope > section"),t=>{t.style.transformOrigin||(t.style.transformOrigin="0 0");const l=(a-s*i)/2-e,c=(r-s*n)/2-o;t.style.transform=`translate3d(${l}px,${c}px,0) scale(${s}) translate(${e}px,${o}px)`})})}})}const e=(t,e,r)=>{if(t.getAttribute(e)!==r)return t.setAttribute(e,r),!0};function r(a=!0){for(const e of"Apple Computer, Inc."===navigator.vendor?[t]:[])e();Array.from(document.querySelectorAll('svg[data-marp-fitting="svg"]'),t=>{const r=t.firstChild,a=r.firstChild,{scrollWidth:o,scrollHeight:i}=a;let n,s=1;if(t.hasAttribute("data-marp-fitting-code")&&(n=t.parentElement.parentElement),t.hasAttribute("data-marp-fitting-math")&&(n=t.parentElement),n){const t=getComputedStyle(n),e=Math.ceil(n.clientWidth-parseFloat(t.paddingLeft)-parseFloat(t.paddingRight));e&&(s=e)}const l=Math.max(o,s),c=Math.max(i,1),p=`0 0 ${l} ${c}`;e(r,"width",""+l),e(r,"height",""+c),e(t,"preserveAspectRatio",getComputedStyle(t).getPropertyValue("--preserve-aspect-ratio")||"xMinYMin meet"),e(t,"viewBox",p)&&t.classList.toggle("__reflow__")}),a&&window.requestAnimationFrame(()=>r(a))}!function(){if("undefined"==typeof window)throw new Error("Marp Core's browser script is valid only in browser context.");window.marpCoreBrowserScript?console.warn("Marp Core's browser script has already executed."):(Object.defineProperty(window,"marpCoreBrowserScript",{value:!0}),r())}()}();
+</script></foreignObject></svg></div><div class="bespoke-marp-note" data-index="3" tabindex="0"><p>- Building an application following this model is one way of achieving a &quot;serverless&quot; architecture, and is typically used when building microservices applications.</p></div><div class="bespoke-marp-note" data-index="8" tabindex="0"><p>## Installation
+
+This tutorial is made on top of one local machine an Linux Ubuntu 18.04 LTS machine. 
+
+-</p></div><div class="bespoke-marp-note" data-index="10" tabindex="0"><p>Refers to the [Stackoverflow discussion](https://stackoverflow.com/questions/20430371/my-docker-container-has-no-internet).</p></div><div class="bespoke-marp-note" data-index="11" tabindex="0"><p>**TIP** Docker compose is the technology used by Nuclio to easily create, build and deploy Docker application containers (the functions in this case).</p></div><div class="bespoke-marp-note" data-index="30" tabindex="0"><p>The Temperature Consume Function is written in pure JavaScript and exploits the _amqplib_ JavaScript library to communicate on the &quot;iot/logs&quot; queue the invocation of the function.</p></div><div class="bespoke-marp-note" data-index="36" tabindex="0"><p>The Send Random Temperature Function is written in pure JavaScript and exploits the _MQTT.js_ JavaScript library to communicate on the topic &quot;iot/sensors/temperature&quot;.</p></div><div class="bespoke-marp-note" data-index="42" tabindex="0"><p>The logger function is written in pure JavaScript and exploits the _amqplib_ JavaScript library to receive messages on the queue &quot;iot/logs&quot;.</p></div><div class="bespoke-marp-note" data-index="49" tabindex="0"><p>here I was wrong to rename the files when I uploaded them ... but I put them in order in the slide</p></div><script>!function(){"use strict";var e=function(e,t){var n,r=1===(e.parent||e).nodeType?e.parent||e:document.querySelector(e.parent||e),s=[].filter.call("string"==typeof e.slides?r.querySelectorAll(e.slides):e.slides||r.children,(function(e){return"SCRIPT"!==e.nodeName})),a={},o=function(e,t){return(t=t||{}).index=s.indexOf(e),t.slide=e,t},i=function(e,t){a[e]=(a[e]||[]).filter((function(e){return e!==t}))},l=function(e,t){return(a[e]||[]).reduce((function(e,n){return e&&!1!==n(t)}),!0)},c=function(e,t){s[e]&&(n&&l("deactivate",o(n,t)),n=s[e],l("activate",o(n,t)))},d=function(e,t){var r=s.indexOf(n)+e;l(e>0?"next":"prev",o(n,t))&&c(r,t)},u={off:i,on:function(e,t){return(a[e]||(a[e]=[])).push(t),i.bind(null,e,t)},fire:l,slide:function(e,t){if(!arguments.length)return s.indexOf(n);l("slide",o(s[e],t))&&c(e,t)},next:d.bind(null,1),prev:d.bind(null,-1),parent:r,slides:s,destroy:function(e){l("destroy",o(n,e)),a={}}};return(t||[]).forEach((function(e){e(u)})),n||c(0),u};function t(e){e.parent.classList.add("bespoke-marp-parent"),e.slides.map(e=>e.classList.add("bespoke-marp-slide")),e.on("activate",t=>{e.slides.map(e=>e.classList.remove("bespoke-marp-active")),t.slide.classList.add("bespoke-marp-active")})}function n(e=2e3){return t=>{let n;function r(){n&&clearTimeout(n),n=setTimeout(()=>{t.parent.classList.add("bespoke-marp-inactive")},e),t.parent.classList.remove("bespoke-marp-inactive")}document.addEventListener("mousedown",r),document.addEventListener("mousemove",r),document.addEventListener("touchend",r),setTimeout(r,0)}}const r=["AUDIO","BUTTON","INPUT","SELECT","TEXTAREA","VIDEO"];function s(e){e.parent.addEventListener("keydown",e=>{if(!e.target)return;const t=e.target;(r.includes(t.nodeName)||"true"===t.contentEditable)&&e.stopPropagation()})}function a(e){window.addEventListener("load",()=>{for(const t of e.slides){const e=t.querySelector("[data-marp-fitting]")?"":"hideable";t.setAttribute("data-bespoke-marp-load",e)}})}function o(e){let t=0,n=0;Object.defineProperty(e,"fragments",{enumerable:!0,value:e.slides.map(e=>[null,...e.querySelectorAll("[data-marpit-fragment]")])});const r=r=>void 0!==e.fragments[t][n+r],s=(r,s)=>{t=r,n=s,e.fragments.forEach((e,t)=>{e.forEach((e,n)=>{if(null==e)return;const a=t<r||t===r&&n<=s;e.setAttribute("data-bespoke-marp-fragment",a?"active":"inactive"),t===r&&n===s?e.setAttribute("data-bespoke-marp-current-fragment","current"):e.removeAttribute("data-bespoke-marp-current-fragment")})}),e.fragmentIndex=s;const a={slide:e.slides[r],index:r,fragments:e.fragments[r],fragmentIndex:s};e.fire("fragment",a)};e.on("next",()=>{if(r(1))return s(t,n+1),!1;const a=t+1;e.fragments[a]&&s(a,0)}),e.on("prev",()=>{if(r(-1))return s(t,n-1),!1;const a=t-1;e.fragments[a]&&s(a,e.fragments[a].length-1)}),e.on("slide",({index:t,fragment:n})=>{let r=0;if(void 0!==n){const s=e.fragments[t];if(s){const{length:e}=s;r=-1===n?e-1:Math.min(Math.max(n,0),e-1)}}s(t,r)}),s(0,0)}var i,l=function(e,t){return e(t={exports:{}},t.exports),t.exports}((function(e){
+/*!
+  * screenfull
+  * v5.0.2 - 2020-02-13
+  * (c) Sindre Sorhus; MIT License
+  */
+!function(){var t="undefined"!=typeof window&&void 0!==window.document?window.document:{},n=e.exports,r=function(){for(var e,n=[["requestFullscreen","exitFullscreen","fullscreenElement","fullscreenEnabled","fullscreenchange","fullscreenerror"],["webkitRequestFullscreen","webkitExitFullscreen","webkitFullscreenElement","webkitFullscreenEnabled","webkitfullscreenchange","webkitfullscreenerror"],["webkitRequestFullScreen","webkitCancelFullScreen","webkitCurrentFullScreenElement","webkitCancelFullScreen","webkitfullscreenchange","webkitfullscreenerror"],["mozRequestFullScreen","mozCancelFullScreen","mozFullScreenElement","mozFullScreenEnabled","mozfullscreenchange","mozfullscreenerror"],["msRequestFullscreen","msExitFullscreen","msFullscreenElement","msFullscreenEnabled","MSFullscreenChange","MSFullscreenError"]],r=0,s=n.length,a={};r<s;r++)if((e=n[r])&&e[1]in t){for(r=0;r<e.length;r++)a[n[0][r]]=e[r];return a}return!1}(),s={change:r.fullscreenchange,error:r.fullscreenerror},a={request:function(e){return new Promise(function(n,s){var a=function(){this.off("change",a),n()}.bind(this);this.on("change",a);var o=(e=e||t.documentElement)[r.requestFullscreen]();o instanceof Promise&&o.then(a).catch(s)}.bind(this))},exit:function(){return new Promise(function(e,n){if(this.isFullscreen){var s=function(){this.off("change",s),e()}.bind(this);this.on("change",s);var a=t[r.exitFullscreen]();a instanceof Promise&&a.then(s).catch(n)}else e()}.bind(this))},toggle:function(e){return this.isFullscreen?this.exit():this.request(e)},onchange:function(e){this.on("change",e)},onerror:function(e){this.on("error",e)},on:function(e,n){var r=s[e];r&&t.addEventListener(r,n,!1)},off:function(e,n){var r=s[e];r&&t.removeEventListener(r,n,!1)},raw:r};r?(Object.defineProperties(a,{isFullscreen:{get:function(){return Boolean(t[r.fullscreenElement])}},element:{enumerable:!0,get:function(){return t[r.fullscreenElement]}},isEnabled:{enumerable:!0,get:function(){return Boolean(t[r.fullscreenEnabled])}}}),n?e.exports=a:window.screenfull=a):n?e.exports={isEnabled:!1}:window.screenfull={isEnabled:!1}}()}));l.isEnabled;function c(e){e.fullscreen=()=>{l.isEnabled&&l.toggle(document.body)},document.addEventListener("keydown",t=>{70!==t.which&&122!==t.which||t.altKey||t.ctrlKey||t.metaKey||!l.isEnabled||(e.fullscreen(),t.preventDefault())})}function d(e={}){const t=Object.assign({interval:200},e);return e=>{document.addEventListener("keydown",t=>{(32===t.which&&t.shiftKey||33===t.which||37===t.which||38===t.which)&&e.prev(),(32===t.which&&!t.shiftKey||34===t.which||39===t.which||40===t.which)&&e.next(),35===t.which&&e.slide(e.slides.length-1,{fragment:-1}),36===t.which&&e.slide(0)});let n,r,s=0;e.parent.addEventListener("wheel",a=>{let o=!1;const l=(e,t)=>{e&&(o=o||function(e,t){return function(e,t){const n=t===i.X?"Width":"Height";return e["client"+n]<e["scroll"+n]}(e,t)&&function(e,t){const{overflow:n}=e,r=e["overflow"+t];return"auto"===n||"scroll"===n||"auto"===r||"scroll"===r}(getComputedStyle(e),t)}(e,t)),(null==e?void 0:e.parentElement)&&l(e.parentElement,t)};if(0!==a.deltaX&&l(a.target,i.X),0!==a.deltaY&&l(a.target,i.Y),o)return;a.preventDefault(),r&&clearTimeout(r),r=setTimeout(()=>{n=0},t.interval);const c=Date.now()-s<t.interval,d=Math.sqrt(Math.pow(a.deltaX,2)+Math.pow(a.deltaY,2)),u=d<=n;if(n=d,c||u)return;let f;(a.deltaX>0||a.deltaY>0)&&(f="next"),(a.deltaX<0||a.deltaY<0)&&(f="prev"),f&&(e[f](),s=Date.now())})}}!function(e){e.X="X",e.Y="Y"}(i||(i={}));const u=(...e)=>history.replaceState(...e);var f;!function(e){e.Normal="",e.Presenter="presenter",e.Next="next"}(f||(f={}));const p=(e,{protocol:t,host:n,pathname:r,hash:s}=location)=>{const a=e.toString();return`${t}//${n}${r}${a?"?":""}${a}${s}`},m=()=>{switch(document.body.getAttribute("data-bespoke-view")){case f.Normal:return f.Normal;case f.Presenter:return f.Presenter;case f.Next:return f.Next;default:throw new Error("View mode is not assigned.")}},h=e=>new URLSearchParams(location.search).get(e),g=(e,t={})=>{const n=Object.assign({location:location,setter:u},t),r=new URLSearchParams(n.location.search);for(const t of Object.keys(e)){const n=e[t];"string"==typeof n?r.set(t,n):r.delete(t)}try{n.setter(null,document.title,p(r,n.location))}catch(e){console.error(e)}},b={available:(()=>{try{return localStorage.setItem("bespoke-marp","bespoke-marp"),localStorage.removeItem("bespoke-marp"),!0}catch(e){return console.warn("Warning: Using localStorage is restricted in the current host so some features may not work."),!1}})(),get:e=>{try{return localStorage.getItem(e)}catch(e){return null}},set:(e,t)=>{try{return localStorage.setItem(e,t),!0}catch(e){return!1}},remove:e=>{try{return localStorage.removeItem(e),!0}catch(e){return!1}}};function v(e=".bespoke-marp-osc"){const t=document.querySelector(e);if(!t)return()=>{};const n=(e,n)=>{t.querySelectorAll(`[data-bespoke-marp-osc=${JSON.stringify(e)}]`).forEach(n)};return l.isEnabled||n("fullscreen",e=>e.style.display="none"),b.available||n("presenter",e=>{e.disabled=!0,e.title="Presenter view is disabled due to restricted localStorage."}),e=>{t.addEventListener("click",t=>{if(t.target instanceof HTMLElement){const{bespokeMarpOsc:n}=t.target.dataset;switch(n&&t.target.blur(),n){case"next":e.next();break;case"prev":e.prev();break;case"fullscreen":"function"==typeof e.fullscreen&&l.isEnabled&&e.fullscreen();break;case"presenter":e.openPresenterView()}}}),e.parent.appendChild(t),e.on("activate",({index:t})=>{n("page",n=>n.textContent=`Page ${t+1} of ${e.slides.length}`)}),e.on("fragment",({index:t,fragments:r,fragmentIndex:s})=>{n("prev",e=>e.disabled=0===t&&0===s),n("next",n=>n.disabled=t===e.slides.length-1&&s===r.length-1)}),l.isEnabled&&l.onchange(()=>n("fullscreen",e=>e.classList.toggle("exit",l.isEnabled&&l.isFullscreen)))}}function w(){const e=Math.max(Math.floor(.85*window.innerWidth),640),t=Math.max(Math.floor(.85*window.innerHeight),360);return window.open(this.presenterUrl,"bespoke-marp-presenter-"+this.syncKey,`width=${e},height=${t},menubar=no,toolbar=no`)}function y(){const e=new URLSearchParams(location.search);return e.set("view","presenter"),e.set("sync",this.syncKey),p(e)}var x=["area","base","br","col","command","embed","hr","img","input","keygen","link","meta","param","source","track","wbr"];let E=e=>String(e).replace(/[&<>"']/g,e=>`&${k[e]};`),k={"&":"amp","<":"lt",">":"gt",'"':"quot","'":"apos"},S="dangerouslySetInnerHTML",L={className:"class",htmlFor:"for"},I={};function P(e,t){let n=[],r="";t=t||{};for(let e=arguments.length;e-- >2;)n.push(arguments[e]);if("function"==typeof e)return t.children=n.reverse(),e(t);if(e){if(r+="<"+e,t)for(let e in t)!1!==t[e]&&null!=t[e]&&e!==S&&(r+=` ${L[e]?L[e]:E(e)}="${E(t[e])}"`);r+=">"}if(-1===x.indexOf(e)){if(t[S])r+=t[S].__html;else for(;n.length;){let e=n.pop();if(e)if(e.pop)for(let t=e.length;t--;)n.push(e[t]);else r+=!0===I[e]?e:E(e)}r+=e?`</${e}>`:""}return I[r]=!0,r}const M=({children:e})=>P(null,null,...e),N="bespoke-marp-presenter-container",F="bespoke-marp-presenter-next",O="bespoke-marp-presenter-next-container",T="bespoke-marp-presenter-note-container",q="bespoke-marp-presenter-info-container",C="bespoke-marp-presenter-info-page",$="bespoke-marp-presenter-info-page-text",j="bespoke-marp-presenter-info-page-prev",A="bespoke-marp-presenter-info-page-next",K="bespoke-marp-presenter-info-time",R="bespoke-marp-presenter-info-timer";function U(e){const{title:t}=document;document.title="[Presenter view]"+(t?" - "+t:"");const n={},r=e=>(n[e]=n[e]||document.querySelector("."+e),n[e]);document.body.appendChild((e=>{const t=document.createElement("div");return t.className=N,t.appendChild(e),t.insertAdjacentHTML("beforeend",P(M,null,P("div",{class:O},P("iframe",{class:F,src:"?view=next"})),P("div",{class:T}),P("div",{class:q},P("div",{class:C},P("button",{class:j,tabindex:"-1",title:"Previous"},"Previous"),P("span",{class:$}),P("button",{class:A,tabindex:"-1",title:"Next"},"Next")),P("time",{class:K,title:"Current time"}),P("div",{class:R})))),t})(e.parent)),(e=>{r(O).addEventListener("click",()=>e.next());const t=r(F),n=(s=t,(e,t)=>s.contentWindow.postMessage(`navigate:${e},${t}`,"null"===window.origin?"*":window.origin));var s;t.addEventListener("load",()=>{r(O).classList.add("active"),n(e.slide(),e.fragmentIndex),e.on("fragment",({index:e,fragmentIndex:t})=>n(e,t))});const a=document.querySelectorAll(".bespoke-marp-note");a.forEach(e=>{e.addEventListener("keydown",e=>e.stopPropagation()),r(T).appendChild(e)}),e.on("activate",()=>a.forEach(t=>t.classList.toggle("active",t.dataset.index==e.slide()))),e.on("activate",({index:t})=>{r($).textContent=`${t+1} / ${e.slides.length}`});const o=r(j),i=r(A);o.addEventListener("click",()=>{o.blur(),e.prev()}),i.addEventListener("click",()=>{i.blur(),e.next()}),e.on("fragment",({index:t,fragments:n,fragmentIndex:r})=>{o.disabled=0===t&&0===r,i.disabled=t===e.slides.length-1&&r===n.length-1});const l=()=>r(K).textContent=(new Date).toLocaleTimeString();l(),setInterval(l,250)})(e)}function V(e){const t=m();return t===f.Next&&e.appendChild(document.createElement("span")),e=>{t===f.Normal&&function(e){if(!(e=>e.syncKey&&"string"==typeof e.syncKey)(e))throw new Error("The current instance of Bespoke.js is invalid for Marp bespoke presenter plugin.");Object.defineProperties(e,{openPresenterView:{enumerable:!0,value:w},presenterUrl:{enumerable:!0,get:y}}),b.available&&document.addEventListener("keydown",t=>{80!==t.which||t.altKey||t.ctrlKey||t.metaKey||(t.preventDefault(),e.openPresenterView())})}(e),t===f.Presenter&&U(e),t===f.Next&&function(e){const t=t=>{if(t.origin!==window.origin)return;const[n,r]=t.data.split(":");if("navigate"===n){const[t,n]=r.split(",");e.slide(Number.parseInt(t,10),{fragment:Number.parseInt(n,10)}),e.next()}};window.addEventListener("message",t),e.on("destroy",()=>window.removeEventListener("message",t))}(e)}}function X(e){e.on("activate",t=>{document.querySelectorAll(".bespoke-progress-bar").forEach(n=>{n.style.flexBasis=100*t.index/(e.slides.length-1)+"%"})})}const D=e=>{const t=Number.parseInt(e,10);return Number.isNaN(t)?null:t};function Y(e={}){const t=Object.assign({history:!0},e);return e=>{let n=!0;const r=e=>{const t=n;try{return n=!0,e()}finally{n=t}},s=(t={fragment:!0})=>{((t,n)=>{const{fragments:r,slides:s}=e,a=Math.max(0,Math.min(t,s.length-1)),o=Math.max(0,Math.min(n||0,r[a].length-1));a===e.slide()&&o===e.fragmentIndex||e.slide(a,{fragment:o})})((D(location.hash.slice(1))||1)-1,t.fragment?D(h("f")||""):null)};e.on("fragment",({index:e,fragmentIndex:r})=>{n||g({f:0===r||r.toString()},{location:Object.assign(Object.assign({},location),{hash:"#"+(e+1)}),setter:(...e)=>t.history?history.pushState(...e):history.replaceState(...e)})}),setTimeout(()=>{s(),window.addEventListener("hashchange",()=>r(()=>{s({fragment:!1}),g({f:void 0})})),window.addEventListener("popstate",()=>{n||r(()=>s())}),n=!1},0)}}function B(e={}){const t=e.key||((e=21)=>{let t="",n=crypto.getRandomValues(new Uint8Array(e));for(;e--;){let r=63&n[e];t+=r<36?r.toString(36):r<62?(r-26).toString(36).toUpperCase():r<63?"_":"-"}return t})(),n="bespoke-marp-sync-"+t,r=()=>{const e=b.get(n);return e?JSON.parse(e):Object.create(null)},s=e=>{const t=r(),s=Object.assign(Object.assign({},t),e(t));return b.set(n,JSON.stringify(s)),s};return s(e=>({reference:(e.reference||0)+1})),e=>{Object.defineProperty(e,"syncKey",{value:t,enumerable:!0});let a=!0;setTimeout(()=>{e.on("fragment",e=>{a&&s(()=>({index:e.index,fragmentIndex:e.fragmentIndex}))})},0),window.addEventListener("storage",t=>{if(t.key===n&&t.oldValue&&t.newValue){const n=JSON.parse(t.oldValue),r=JSON.parse(t.newValue);if(n.index!==r.index||n.fragmentIndex!==r.fragmentIndex)try{a=!1,e.slide(r.index,{fragment:r.fragmentIndex})}finally{a=!0}}}),e.on("destroy",()=>{const{reference:e}=r();void 0===e||e<=1?b.remove(n):s(()=>({reference:e-1}))})}}function z(e={}){const t=Object.assign({slope:Math.tan(-35*Math.PI/180),swipeThreshold:30},e);return e=>{let n;const r=e.parent,s=e=>{const t=r.getBoundingClientRect();return{x:e.pageX-(t.left+t.right)/2,y:e.pageY-(t.top+t.bottom)/2}};r.addEventListener("touchstart",e=>{n=1===e.touches.length?s(e.touches[0]):void 0},{passive:!0}),r.addEventListener("touchmove",e=>{if(n)if(1===e.touches.length){e.preventDefault();const t=s(e.touches[0]),r=t.x-n.x,a=t.y-n.y;n.delta=Math.sqrt(Math.pow(Math.abs(r),2)+Math.pow(Math.abs(a),2)),n.radian=Math.atan2(r,a)}else n=void 0}),r.addEventListener("touchend",r=>{if(n){if(n.delta&&n.delta>=t.swipeThreshold){let s=n.radian-t.slope;s=(s+Math.PI)%(2*Math.PI)-Math.PI,e[s<0?"next":"prev"](),r.stopPropagation()}n=void 0}},{passive:!0})}}const H=[f.Normal,f.Presenter,f.Next];!function(r=document.getElementById("p")){document.body.setAttribute("data-bespoke-view",(()=>{switch(h("view")){case"next":return f.Next;case"presenter":return f.Presenter;default:return f.Normal}})());const i=(e=>{const t=h(e);return g({[e]:void 0}),t})("sync")||void 0,l=!1,u=!0,p=e(r,((...e)=>{const t=H.findIndex(e=>m()===e);if(t<0)throw new Error("Invalid view");return e.map(([e,n])=>e[t]&&n).filter(e=>e)})([[u,u,l],B({key:i})],[[u,u,u],V(r)],[[u,u,l],s],[[u,u,u],t],[[u,l,l],n()],[[u,u,u],a],[[u,u,u],Y({history:!1})],[[u,u,l],d()],[[u,u,l],c],[[u,l,l],X],[[u,u,l],z()],[[u,l,l],v()],[[u,u,u],o]));window.addEventListener("beforeunload",()=>g({sync:p.syncKey})),window.addEventListener("unload",()=>p.destroy())}()}();
+</script></body></html>
