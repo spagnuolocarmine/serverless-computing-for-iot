@@ -81,7 +81,7 @@ _ISISLab - Università degli Studi di Salerno_
 - or you can schedule an online meeting (synchronously) during the official course hours (on the same platform). 
 - please mention us ```@Carmine Spagnuolo#6098  and @Matteo D'Auria#1998```. 
 
-[![ h:30](https://img.shields.io/badge/GitHub-serverless--computing--for--iot-blue)](https://github.com/spagnuolocarmine/serverless-computing-for-iot) [![h:30](https://img.shields.io/badge/HTML-Live%20Preview-red)](https://github.com/spagnuolocarmine/serverless-computing-for-iot/raw/master/assets/slides.html)
+[![ h:30](https://img.shields.io/badge/GitHub-serverless--computing--for--iot-blue)](https://github.com/spagnuolocarmine/serverless-computing-for-iot) [![h:30](https://img.shields.io/badge/HTML-Live%20Preview-yellow)](https://htmlpreview.github.io/?https%3A%2F%2Fraw.githubusercontent.com%2Fspagnuolocarmine%2Fserverless-computing-for-iot%2Fmaster%2Fassets%2Fslides.html) [![h:30](https://img.shields.io/badge/PDF-%20Download-red)](https://github.com/spagnuolocarmine/serverless-computing-for-iot/raw/master/assets/slides.pdf)
 
 ---
 
